@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>00517B44-649C-4165-9C62-A161BED09A2D</AddInId>
+		<FullClassName>MyRevitCommands.GetElementId</FullClassName>
+		<Text>GetElementId</Text>
+		<Description>Get the Id from an element</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>799ACFD9-BE06-4C53-BF24-9620B7EFFD0C</AddInId>
+		<FullClassName>MyRevitCommands.CollectWindows</FullClassName>
+		<Text>CollectWindows</Text>
+		<Description>Collect windows from a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>0F9D1575-E7C8-461F-A796-144A81F9FBBE</AddInId>
+		<FullClassName>MyRevitCommands.DeleteElement</FullClassName>
+		<Text>DeleteElement</Text>
+		<Description>Delete element from a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>8763CB75-1754-4A9A-B15D-8CF78E14AC46</AddInId>
+		<FullClassName>MyRevitCommands.PlaceFamily</FullClassName>
+		<Text>PlaceFamily</Text>
+		<Description>Place a family in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>172E779E-17BA-4672-93D4-01E9761A943F</AddInId>
+		<FullClassName>MyRevitCommands.PlaceLineElement</FullClassName>
+		<Text>PlaceLineElement</Text>
+		<Description>Place a line element in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>7E5F108F-EA2D-4774-8786-98DA7EF6176B</AddInId>
+		<FullClassName>MyRevitCommands.PlaceLoopElement</FullClassName>
+		<Text>PlaceLoopElement</Text>
+		<Description>Place a loop element in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>8C511652-F014-469B-99CC-A17FB815CC78</AddInId>
+		<FullClassName>MyRevitCommands.GetParameter</FullClassName>
+		<Text>GetParameter</Text>
+		<Description>Get parameters of an element in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>C4B32761-F3FE-45A6-9FB3-8A341EF0FC65</AddInId>
+		<FullClassName>MyRevitCommands.SetParameter</FullClassName>
+		<Text>SetParameter</Text>
+		<Description>Set parameters of an element in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>509789B1-2CBA-4876-857D-5732DA3300E6</AddInId>
+		<FullClassName>MyRevitCommands.ChangeLocation</FullClassName>
+		<Text>ChangeLocation</Text>
+		<Description>Change location of an element in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>92135E0E-AAD3-480C-B608-458C2003C6FC</AddInId>
+		<FullClassName>MyRevitCommands.EditElement</FullClassName>
+		<Text>EditElement</Text>
+		<Description>Edit an element in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>798CB2FB-431B-4464-9092-15C10D65014F</AddInId>
+		<FullClassName>MyRevitCommands.SelectGeometry</FullClassName>
+		<Text>SelectGeometry</Text>
+		<Description>Get the geometry of an element in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>33596CAB-A9A0-407A-A252-6FC406D4E7F8</AddInId>
+		<FullClassName>MyRevitCommands.ElementIntersection</FullClassName>
+		<Text>ElementIntersection</Text>
+		<Description>Intersection of an element in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>219FB68B-F19B-4009-96FE-C600592D5327</AddInId>
+		<FullClassName>MyRevitCommands.ProjectRay</FullClassName>
+		<Text>ProjectRay</Text>
+		<Description>Projected path an element in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>A6125A2C-1579-466B-AC64-E5AAD152BD68</AddInId>
+		<FullClassName>MyRevitCommands.PlanView</FullClassName>
+		<Text>PlanView</Text>
+		<Description>Plan view in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>A6D4E60B-19AC-408F-8B69-3895FCA1C44F</AddInId>
+		<FullClassName>MyRevitCommands.ViewFilter</FullClassName>
+		<Text>ViewFilter</Text>
+		<Description>Filter view in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>0F76B636-98CA-4F54-9642-AB21A1EAA96E</AddInId>
+		<FullClassName>MyRevitCommands.TagView</FullClassName>
+		<Text>TagView</Text>
+		<Description>Tag a view in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>93A0B110-4A66-4AB1-B874-259A24C4C226</AddInId>
+		<FullClassName>MyRevitCommands.Sheets</FullClassName>
+		<Text>Sheets</Text>
+		<Description>Create sheet in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>F9E48C93-9BFA-42C8-A811-4404CAFBF172</AddInId>
+		<FullClassName>MyRevitCommands.PlaceView</FullClassName>
+		<Text>PlaceView</Text>
+		<Description>Place views in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Application">
+		<Name>ApplicationPlugin</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>78A04A61-84C8-4FCD-AD8E-52D1DEBAAF23</AddInId>
+		<FullClassName>MyRevitCommands.ExternalApplication</FullClassName>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+	</AddIn>
+	<AddIn Type="DBApplication">
+		<Name>DBApplicationPlugin</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>0D24E9D6-BC95-47F5-AD68-EAD49CBEE630</AddInId>
+		<FullClassName>MyRevitCommands.ExternalDBapp</FullClassName>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+	</AddIn>
+</RevitAddIns>

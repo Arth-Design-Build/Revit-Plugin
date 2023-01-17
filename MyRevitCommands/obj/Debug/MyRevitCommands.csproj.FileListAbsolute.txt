@@ -1,0 +1,14 @@
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\MyRevitCommands.addin
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\MyRevitCommands.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\MyRevitCommands.pdb
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\obj\Debug\MyRevitCommands.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\obj\Debug\MyRevitCommands.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\obj\Debug\MyRevitCommands.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\obj\Debug\MyRevitCommands.pdb
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\EPPlus.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\EPPlus.xml
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\obj\Debug\MyRevitCommands.csproj.CopyComplete
