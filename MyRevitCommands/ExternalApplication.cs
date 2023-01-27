@@ -23,7 +23,7 @@ namespace MyRevitCommands
             PushButtonData button = new PushButtonData("Button1", "Add Sheets", path, "MyRevitCommands.Sheets");
             RibbonPanel panel = application.CreateRibbonPanel("Arth Design", "Sheet Maker");
 
-            Uri imagePath = new Uri(@"C:\Users\ASUS\Downloads\AddinImage\AddinImage\LOGO.png");
+            Uri imagePath = new Uri(@"C:\LOGO.png");
             BitmapImage image = new BitmapImage(imagePath);
 
             PushButton pushButton = panel.AddItem(button) as PushButton;

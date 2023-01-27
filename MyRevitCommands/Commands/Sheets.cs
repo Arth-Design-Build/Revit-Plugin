@@ -35,7 +35,7 @@ namespace MyRevitCommands
                     int count2 = 0;
                     int count3 = 0;
                     TaskDialog myDialog = new TaskDialog("Create Sheet");
-                    myDialog.MainInstruction = "Select a Sheet Type";
+                    myDialog.MainInstruction = "Select the Appropriate Titleblock";
                     // myDialog.MainContent = "Please select one of the following options:";
 
                     FilteredElementCollector collector = new FilteredElementCollector(doc);
@@ -44,7 +44,7 @@ namespace MyRevitCommands
                     List<string> titleblockNames = new List<string>();
                     foreach (FamilySymbol symbol in collector)
                     {
-                        if (symbol.Name.ToLower().Contains("horizontal") || symbol.Name.ToLower().Contains("vertical"))
+                        if (symbol.Name.ToLower().Contains("horizontal") || symbol.Name.ToLower().Contains("vertical") || symbol.Name.ToLower().Contains("metric"))
                         {
                             titleblockNames.Add(symbol.Name.ToString());
                         }
