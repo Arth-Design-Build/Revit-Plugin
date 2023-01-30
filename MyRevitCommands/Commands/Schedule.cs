@@ -34,7 +34,7 @@ namespace MyRevitCommands
                 var opt = new ViewScheduleExportOptions
                 {
                     TextQualifier = ExportTextQualifier.None,
-                    FieldDelimiter = ","
+                    FieldDelimiter = ",",
                 };
                 var schedules = new List<ViewSchedule>();
                 var form = new System.Windows.Forms.Form();
@@ -77,8 +77,10 @@ namespace MyRevitCommands
                             else
                                 xlSheetName = vs.Name;
                             var ws = excelEngine.Workbook.Worksheets.Add(xlSheetName);
-                            vs.Export(MapPath, fileName + ".csv", opt);
-                            var data = File.ReadAllLines(MapPath + fileName + ".csv");
+                            vs.Export(MapPath, fileName + ".txt", opt);
+                            var data = File.ReadAllLines(MapPath + fileName + ".txt");
+                            File.WriteAllLines(MapPath + fileName + ".csv", data, Encoding.UTF8);
+                            File.Delete(MapPath + fileName + ".txt");
                             for (int i = 0; i < data.Count(); i++)
                             {
                                 string[] fields = data.ElementAt(i).Split(',');
@@ -94,8 +96,8 @@ namespace MyRevitCommands
                             }
                         }
                     }
-                        excelEngine.SaveAs(new FileInfo(MapPath + docName+ ".xlsx"));
-                        MessageBox.Show("Exported Successfully!", "Success");
+                    excelEngine.SaveAs(new FileInfo(MapPath + docName+ ".xlsx"));
+                    MessageBox.Show("Exported Successfully!", "Success");
                 }
                 };
                 form.Controls.Add(button);
