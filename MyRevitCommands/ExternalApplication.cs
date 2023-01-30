@@ -20,8 +20,8 @@ namespace MyRevitCommands
         {
             application.CreateRibbonTab("Arth Design");
             string path = Assembly.GetExecutingAssembly().Location;
-            PushButtonData button = new PushButtonData("Button1", "Add Sheets", path, "MyRevitCommands.Sheets");
-            RibbonPanel panel = application.CreateRibbonPanel("Arth Design", "Sheet Maker");
+            PushButtonData button = new PushButtonData("Button1", "Export Schedules", path, "MyRevitCommands.Schedule");
+            RibbonPanel panel = application.CreateRibbonPanel("Arth Design", "Batch Export");
 
             Uri imagePath = new Uri(@"C:\LOGO.png");
             BitmapImage image = new BitmapImage(imagePath);
