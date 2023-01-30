@@ -33,7 +33,7 @@ namespace MyRevitCommands
                 .OfClass(typeof(ViewSchedule));
                 var opt = new ViewScheduleExportOptions
                 {
-                    TextQualifier = ExportTextQualifier.DoubleQuote,
+                    TextQualifier = ExportTextQualifier.None,
                     FieldDelimiter = ","
                 };
                 var schedules = new List<ViewSchedule>();
@@ -78,20 +78,25 @@ namespace MyRevitCommands
                                 xlSheetName = vs.Name;
                             var ws = excelEngine.Workbook.Worksheets.Add(xlSheetName);
                             vs.Export(MapPath, fileName + ".csv", opt);
-                            var data = File.ReadAllLines(MapPath + fileName + ".csv").Skip(1);
+                            var data = File.ReadAllLines(MapPath + fileName + ".csv");
                             for (int i = 0; i < data.Count(); i++)
                             {
                                 string[] fields = data.ElementAt(i).Split(',');
                                 for (int j = 0; j < fields.Length; j++)
                                 {
-                                    ws.Cells[i + 1, j + 1].Value = fields[j];
+                                    string field = fields[j];
+                                    if (field.StartsWith("\"") && field.EndsWith("\""))
+                                    {
+                                        field = field.Substring(1, field.Length - 2);
+                                    }
+                                    ws.Cells[i + 1, j + 1].Value = field;
                                 }
                             }
                         }
                     }
                         excelEngine.SaveAs(new FileInfo(MapPath + docName+ ".xlsx"));
                         MessageBox.Show("Exported Successfully!", "Success");
-                    }
+                }
                 };
                 form.Controls.Add(button);
                 form.ShowDialog();

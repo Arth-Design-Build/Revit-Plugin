@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <RevitAddIns>
+	<!--
 	<AddIn Type="Command">
 		<Name>MyRevitCommands</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
@@ -198,6 +199,7 @@
 		<VendorDescription>@HelloWorld</VendorDescription>
 		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
 	</AddIn>
+	-->
 	<AddIn Type="Command">
 		<Name>MyRevitCommands</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
