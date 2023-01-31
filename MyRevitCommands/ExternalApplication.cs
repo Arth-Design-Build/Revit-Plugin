@@ -23,7 +23,7 @@ namespace MyRevitCommands
             PushButtonData button = new PushButtonData("Button1", "Export Schedules", path, "MyRevitCommands.Schedule");
             RibbonPanel panel = application.CreateRibbonPanel("Arth Design", "Batch Export");
 
-            Uri imagePath = new Uri(@"C:\LOGO.png");
+            Uri imagePath = new Uri(@"https://www.linkpicture.com/q/batch_export.png");
             BitmapImage image = new BitmapImage(imagePath);
 
             PushButton pushButton = panel.AddItem(button) as PushButton;
