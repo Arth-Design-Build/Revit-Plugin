@@ -56,10 +56,11 @@ namespace MyRevitCommands
                 }
                 var button1 = new Button
                 {
-                    Text = "Multiple",
-                    Left = 110,
+                    Text = "Export in Multiple Files",
+                    Left = 40,
                     Top = checkBoxes.Count * 40 + 10
                 };
+                button1.AutoSize = true;
                 button1.Click += (sender, args) =>
                 {
                     var selectedSchedules = checkBoxes
@@ -103,10 +104,11 @@ namespace MyRevitCommands
                 };
                 var button = new Button
                 {
-                    Text = "Single",
-                    Left = 190,
+                    Text = "Export in Single File",
+                    Left = 200,
                     Top = checkBoxes.Count * 40 + 10
                 };
+                button.AutoSize = true;
                 button.Click += (sender, args) =>
                 {
                 var selectedSchedules = checkBoxes
