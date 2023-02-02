@@ -100,10 +100,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\PlaceView.cs" />
     <Compile Include="Commands\Schedule.cs" />
+    <Compile Include="Commands\PlaceViewport.cs" />
     <Compile Include="Commands\Sheets.cs" />
     <Compile Include="Commands\TagView.cs" />
     <Compile Include="Commands\ViewFilter.cs" />

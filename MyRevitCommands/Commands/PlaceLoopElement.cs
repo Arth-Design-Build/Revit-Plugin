@@ -51,7 +51,7 @@ namespace MyRevitCommands
                 using (Transaction trans = new Transaction(doc, "Place Loop Element"))
                 {
                     trans.Start();
-                    //doc.Create.NewFloor(cArray,false);
+                    doc.Create.NewFloor(cArray,false);
                     trans.Commit();
                 }
                 return Result.Succeeded;

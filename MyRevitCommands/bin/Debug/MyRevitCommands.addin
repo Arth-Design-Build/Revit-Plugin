@@ -211,6 +211,17 @@
 		<VendorDescription>@HelloWorld</VendorDescription>
 		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
 	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>A2BBE34E-6444-4C98-9826-F6736896E387</AddInId>
+		<FullClassName>MyRevitCommands.PlaceViewport</FullClassName>
+		<Text>PlaceViewport</Text>
+		<Description>Import viewport in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
 	<AddIn Type="Application">
 		<Name>ApplicationPlugin</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
