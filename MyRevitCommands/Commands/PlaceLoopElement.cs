@@ -36,8 +36,8 @@ namespace MyRevitCommands
             curves.Add(l4);
 
             CurveLoop crvLoop = CurveLoop.Create(curves);
-            double offset = UnitUtils.ConvertFromInternalUnits(135, DisplayUnitType.DUT_MILLIMETERS);
-            //double offset = UnitUtils.ConvertFromInternalUnits(135, UnitTypeId.Millimeters);
+            //double offset = UnitUtils.ConvertFromInternalUnits(135, DisplayUnitType.DUT_MILLIMETERS);
+            double offset = UnitUtils.ConvertFromInternalUnits(135, UnitTypeId.Millimeters);
             CurveLoop offsetcrv = CurveLoop.CreateViaOffset(crvLoop, offset, new XYZ(0,0,1));
 
             CurveArray cArray = new CurveArray();
@@ -51,7 +51,7 @@ namespace MyRevitCommands
                 using (Transaction trans = new Transaction(doc, "Place Loop Element"))
                 {
                     trans.Start();
-                    doc.Create.NewFloor(cArray,false);
+                    //doc.Create.NewFloor(cArray,false);
                     trans.Commit();
                 }
                 return Result.Succeeded;
