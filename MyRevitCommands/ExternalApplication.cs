@@ -29,7 +29,7 @@ namespace MyRevitCommands
             PushButton pushButton = panel.AddItem(button) as PushButton;
             pushButton.LargeImage = image;
 
-            PushButtonData button1 = new PushButtonData("Button2", "Import Sheet Information", path, "MyRevitCommands.PlaceViewport");
+            PushButtonData button1 = new PushButtonData("Button2", "Import Views", path, "MyRevitCommands.PlaceViewport");
             RibbonPanel panel1 = application.CreateRibbonPanel("Arth Design", "Generate Sheets");
 
             Uri imagePath1 = new Uri(@"https://www.linkpicture.com/q/2085465-removebg-preview.png");

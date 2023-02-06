@@ -61,7 +61,7 @@ namespace MyRevitCommands
                 {
                     Text = "Select",
                     Left = 150,
-                    Top = titleBlocks.Count * 20 + 40
+                    Top = titleBlocks.Count * 30 + 40
                 };
                 button.AutoSize = true;
                 form.Controls.Add(button);
@@ -95,27 +95,103 @@ namespace MyRevitCommands
                             {
                                 string sheetNumber = worksheet.Cells[row, 1].Value.ToString();
                                 string sheetName = worksheet.Cells[row, 2].Value.ToString();
-                                string viewName = worksheet.Cells[row, 3].Value.ToString();
+                                string temp = worksheet.Cells[row, 3].Value.ToString();
+                                char[] spearator = { ',' };
+                                String[] strlist = temp.Split(spearator,StringSplitOptions.RemoveEmptyEntries);
+                                //string viewName = worksheet.Cells[row, 3].Value.ToString();
 
                                 // Create a new sheet
                                 ViewSheet sheet = ViewSheet.Create(doc, titleBlockIds[0]);
                                 sheet.SheetNumber = sheetNumber;
                                 sheet.Name = sheetName;
 
-                                // Get the view to be placed on the sheet
-                                FilteredElementCollector collector = new FilteredElementCollector(doc);
-                                collector.OfCategory(BuiltInCategory.OST_Views);
-                                collector.OfClass(typeof(Autodesk.Revit.DB.View));
-                                Autodesk.Revit.DB.View view = collector.FirstOrDefault<Element>(e => e.Name.Equals(viewName)) as Autodesk.Revit.DB.View;
+                                int count = strlist.Length;
+                                double num = strlist.Length+1;
+                                double i = 1.00;
+                                double j = num - 1;
+                                double test = 1;
 
-                                if (view != null)
+                                foreach (String s in strlist)
                                 {
-                                    // Place the view on the sheet
-                                    BoundingBoxUV outline = sheet.Outline;
-                                    double xu = (outline.Max.U + outline.Min.U) / 2;
-                                    double yu = (outline.Max.V + outline.Min.V) / 2;
-                                    XYZ midpoint = new XYZ(xu, yu, 0);
-                                    Viewport viewport = Viewport.Create(doc, sheet.Id, view.Id, midpoint);
+                                    double p = i / num;
+                                    //TaskDialog.Show("P", p.ToString());
+                                    double q = j / num;
+                                    string viewName = s;
+                                    //TaskDialog.Show("View", viewName);
+                                    FilteredElementCollector collector = new FilteredElementCollector(doc);
+                                    collector.OfCategory(BuiltInCategory.OST_Views);
+                                    collector.OfClass(typeof(Autodesk.Revit.DB.View));
+                                    Autodesk.Revit.DB.View view = collector.FirstOrDefault<Element>(e => e.Name.Equals(viewName)) as Autodesk.Revit.DB.View;
+
+                                    if (view != null)
+                                    {
+
+                                        // Place the view on the sheet
+                                        //BoundingBoxUV outline = sheet.Outline - sheet.Title;
+                                        BoundingBoxUV outline = sheet.Outline;
+                                        double xu = (outline.Max.U + outline.Min.U);
+                                        double yu = (outline.Max.V + outline.Min.V);
+                                        //TaskDialog.Show(xu.ToString(), yu.ToString());
+                                        double xu_new = ((p * xu) + (q * 0)) / (p + q);
+                                        double yu_new = ((p * yu) + (q * 0)) / (p + q);
+                                        if ((outline.Max.U + outline.Min.U)>=2.29)
+                                        {
+                                            view.Scale = 100 * count;
+                                        }
+                                        else
+                                        {
+                                            if((outline.Max.U + outline.Min.U) >= 1.96 && (outline.Max.U + outline.Min.U) < 2.29)
+                                            {
+                                                view.Scale = 125 * count;
+                                            }
+                                            else
+                                            {
+                                                if ((outline.Max.U + outline.Min.U) >= 1.64 && (outline.Max.U + outline.Min.U) < 1.96)
+                                                {
+                                                    view.Scale = 150 * count;
+                                                }
+                                                else
+                                                {
+                                                    if ((outline.Max.U + outline.Min.U) >= 1.31 && (outline.Max.U + outline.Min.U) < 1.64)
+                                                    {
+                                                        view.Scale = 175 * count;
+                                                    }
+                                                    else
+                                                    {
+                                                        if ((outline.Max.U + outline.Min.U) >= 0.98 && (outline.Max.U + outline.Min.U) < 1.31)
+                                                        {
+                                                            view.Scale = 200 * count;
+                                                        }
+                                                        else
+                                                        {
+                                                            if ((outline.Max.U + outline.Min.U) >= 0.65 && (outline.Max.U + outline.Min.U) < 0.98)
+                                                            {
+                                                                view.Scale = 225 * count;
+                                                            }
+                                                            else
+                                                            {
+                                                                if ((outline.Max.U + outline.Min.U) >= 0.32 && (outline.Max.U + outline.Min.U) < 0.65)
+                                                                {
+                                                                    view.Scale = 250 * count;
+                                                                }
+                                                                else
+                                                                {
+                                                                    if ((outline.Max.U + outline.Min.U) >= 0 && (outline.Max.U + outline.Min.U) < 0.32)
+                                                                    {
+                                                                        view.Scale = 275 * count;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        XYZ point = new XYZ(xu_new, yu_new, 0);
+                                        Viewport viewport = Viewport.Create(doc, sheet.Id, view.Id, point);
+                                    }
+                                    i++;
+                                    j--;
                                 }
 
                                 row++;
