@@ -230,6 +230,7 @@
 		<VendorId>Soumya</VendorId>
 		<VendorDescription>@HelloWorld</VendorDescription>
 	</AddIn>
+	<!--
 	<AddIn Type="DBApplication">
 		<Name>DBApplicationPlugin</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
@@ -238,4 +239,5 @@
 		<VendorId>Soumya</VendorId>
 		<VendorDescription>@HelloWorld</VendorDescription>
 	</AddIn>
+	-->
 </RevitAddIns>
