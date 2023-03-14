@@ -199,7 +199,6 @@
 		<VendorDescription>@HelloWorld</VendorDescription>
 		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
 	</AddIn>
-	-->
 	<AddIn Type="Command">
 		<Name>MyRevitCommands</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
@@ -222,14 +221,16 @@
 		<VendorDescription>@HelloWorld</VendorDescription>
 		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
 	</AddIn>
+	-->
 	<AddIn Type="Application">
 		<Name>ApplicationPlugin</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
 		<AddInId>78A04A61-84C8-4FCD-AD8E-52D1DEBAAF23</AddInId>
 		<FullClassName>MyRevitCommands.ExternalApplication</FullClassName>
-		<VendorId>Soumya</VendorId>
-		<VendorDescription>@HelloWorld</VendorDescription>
+		<VendorId>Arth Design</VendorId>
+		<VendorDescription>soumya.t@arthdesignbuild.com</VendorDescription>
 	</AddIn>
+	<!--
 	<AddIn Type="DBApplication">
 		<Name>DBApplicationPlugin</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
@@ -238,4 +239,5 @@
 		<VendorId>Soumya</VendorId>
 		<VendorDescription>@HelloWorld</VendorDescription>
 	</AddIn>
+	-->
 </RevitAddIns>

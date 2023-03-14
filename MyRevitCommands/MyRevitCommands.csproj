@@ -66,6 +66,9 @@
   <PropertyGroup />
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.23.2.0\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus, Version=6.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.6.1.1\lib\net462\EPPlus.dll</HintPath>
     </Reference>
@@ -79,6 +82,9 @@
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="Prism, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.8.1.97\lib\net47\Prism.dll</HintPath>
+    </Reference>
     <Reference Include="RevitAPI">
       <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPI.dll</HintPath>
       <Private>False</Private>
@@ -103,6 +109,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddDimComponent.cs" />
+    <Compile Include="Commands\AddDimDuct.cs" />
+    <Compile Include="Commands\AddDimPipe.cs" />
+    <Compile Include="Commands\AddDimGrid.cs" />
+    <Compile Include="Commands\AddDimWall.cs" />
+    <Compile Include="Commands\FamilyReviser.cs" />
+    <Compile Include="Commands\AddTag.cs" />
+    <Compile Include="Commands\AddAnnotation.cs" />
+    <Compile Include="Commands\AddViewport.cs" />
+    <Compile Include="Commands\AddSheet.cs" />
     <Compile Include="Commands\PlaceView.cs" />
     <Compile Include="Commands\Schedule.cs" />
     <Compile Include="Commands\PlaceViewport.cs" />

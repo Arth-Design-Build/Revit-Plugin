@@ -12,3 +12,8 @@ C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Microsoft.I
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\EPPlus.xml
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\obj\Debug\MyRevitCommands.csproj.CopyComplete
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Prism.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Prism.pdb
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Prism.xml
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Aspose.Cells.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Aspose.Cells.xml
