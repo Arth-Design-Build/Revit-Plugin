@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyRevitCommands
@@ -51,7 +52,6 @@ namespace MyRevitCommands
                              v.ViewType == ViewType.Section ||
                              v.ViewType == ViewType.Rendering ||
                              v.ViewType == ViewType.ThreeD ||
-                             v.ViewType == ViewType.Schedule ||
                              v.ViewType == ViewType.DraftingView))
                 .Cast<Element>()
                 .ToList();
@@ -85,7 +85,10 @@ namespace MyRevitCommands
                 CheckedListBox checkedListBox = new CheckedListBox();
                 checkedListBox.CheckOnClick = true;
                 checkedListBox.Width = 200;
+
+                placedViewNames.Sort();
                 unplacedViewNames1.Sort();
+
                 checkedListBox.Items.AddRange(unplacedViewNames1.ToArray());
                 // Create a button to add the selected views to the sheet
                 Button addViewsButton = new Button();
@@ -121,8 +124,8 @@ namespace MyRevitCommands
                         double maxViewportHeight = outline.Max.V - outline.Min.V;
 
                         // calculate the initial placement point at the top left of the sheet
-                        double x = outline.Min.U + maxViewportWidth / 4;
-                        double y = outline.Max.V - maxViewportHeight / 4;
+                        double x = outline.Min.U + maxViewportWidth / 3.75;
+                        double y = outline.Max.V - maxViewportHeight / 3.75;
 
                         // define the spacing between viewports
                         double viewportSpacing = 0.025 * maxViewportWidth;
@@ -145,14 +148,15 @@ namespace MyRevitCommands
                             Viewport viewport = Viewport.Create(doc, sheet.Id, selectedView.Id, point);
 
                             // increment the x position for the next viewport
-                            x += viewportWidth / 2 + (viewportSpacing*10);
+                            x += viewportWidth / 2 + (viewportSpacing*12);
 
                             count++;
                         }
 
                         transaction.Commit();
+                        //MessageBox.Show("Views Placed Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Task.Delay(1000).Wait();
                     }
-
 
                 });
 
@@ -164,19 +168,21 @@ namespace MyRevitCommands
             // Create a form to display the sheet and view data
             System.Windows.Forms.Form form = new System.Windows.Forms.Form();
             form.Text = "Add Viewport to Sheet";
-            form.Width = 700;
-            form.Height = 500;
-            form.Padding = new System.Windows.Forms.Padding(10);
+            //form.Width = 1000;
+            //form.Height = 500;
+            form.Size = new System.Drawing.Size(1000, 500);
+            form.Padding = new System.Windows.Forms.Padding(10,10,0,10);
 
             // Create a table layout panel to organize the sheet and view data
             TableLayoutPanel table = new TableLayoutPanel();
             table.Dock = DockStyle.Fill;
             table.ColumnCount = 5;
+            table.AutoScroll = true;
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15));
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40));
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10));
 
             // Add headers to the table
             Label sheetNumberHeader = new Label();
@@ -227,7 +233,7 @@ namespace MyRevitCommands
                 table.Controls.Add(sheetNameLabel, 1, row);
 
                 Label placedViewsLabel = new Label();
-                placedViewsLabel.Text = string.Join(", ", data[2] as string[]);
+                placedViewsLabel.Text = string.Join(" ⎥ ", (data[2] as string[]).Select(s => $"{s}"));
                 placedViewsLabel.Dock = DockStyle.Fill;
                 table.Controls.Add(placedViewsLabel, 2, row);
 
@@ -247,7 +253,8 @@ namespace MyRevitCommands
                 form.Close();
             }
 
-            form.AutoScroll = true;
+            // Define the border style of the form to a dialog box.
+            form.FormBorderStyle = FormBorderStyle.FixedDialog;
 
             // Set the MaximizeBox to false to remove the maximize box.
             form.MaximizeBox = false;

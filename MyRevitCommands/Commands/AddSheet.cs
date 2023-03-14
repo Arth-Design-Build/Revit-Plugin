@@ -89,6 +89,9 @@ namespace MyRevitCommands
 
                 form.AutoScroll = true;
 
+                // Define the border style of the form to a dialog box.
+                form.FormBorderStyle = FormBorderStyle.FixedDialog;
+
                 // Set the MaximizeBox to false to remove the maximize box.
                 form.MaximizeBox = false;
 
