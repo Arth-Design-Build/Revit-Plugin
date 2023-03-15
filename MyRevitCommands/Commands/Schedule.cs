@@ -12,6 +12,7 @@ using System.IO;
 using OfficeOpenXml;
 using System.Globalization;
 using System.Reflection;
+using System.Drawing;
 
 namespace MyRevitCommands
 {
@@ -39,18 +40,25 @@ namespace MyRevitCommands
                 };
                 var schedules = new List<ViewSchedule>();
                 var form = new System.Windows.Forms.Form();
-                form.Size = new System.Drawing.Size(400, 400);
+                form.Size = new System.Drawing.Size(700, 400);
+                form.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
+
+                form.Text = "Export Schedules in Excel";
                 form.AutoScroll = true;
                 var checkBoxes = new List<CheckBox>();
                 foreach (ViewSchedule vs in col)
                 {
+                    if(vs.Name.ToString().Split(' ')[0]=="<Revision")
+                    {
+                        continue;
+                    }
                     schedules.Add(vs);
                     var checkBox = new CheckBox
                     {
                         Text = vs.Name,
                         AutoSize = true,
                         Left = 10,
-                        Top = 10 + checkBoxes.Count * 40
+                        Top = 10 + checkBoxes.Count * 30
                     };
                     checkBoxes.Add(checkBox);
                     form.Controls.Add(checkBox);
@@ -58,7 +66,7 @@ namespace MyRevitCommands
                 var button1 = new Button
                 {
                     Text = "Export in Multiple Files",
-                    Left = 40,
+                    Left = 180,
                     Top = checkBoxes.Count * 40 + 10
                 };
                 button1.AutoSize = true;
@@ -115,7 +123,7 @@ namespace MyRevitCommands
                 var button = new Button
                 {
                     Text = "Export in Single File",
-                    Left = 200,
+                    Left = 340,
                     Top = checkBoxes.Count * 40 + 10
                 };
                 button.AutoSize = true;
@@ -181,6 +189,23 @@ namespace MyRevitCommands
                 };
                 form.Controls.Add(button1);
                 form.Controls.Add(button);
+                System.Windows.Forms.Panel blankPanel = new System.Windows.Forms.Panel();
+                blankPanel.Height = 10;
+                form.Controls.Add(blankPanel);
+
+                // Define the border style of the form to a dialog box.
+                form.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+                // Set the MaximizeBox to false to remove the maximize box.
+                form.MaximizeBox = false;
+
+                // Set the MinimizeBox to false to remove the minimize box.
+                form.MinimizeBox = false;
+
+                form.Icon = new Icon("favicon.ico");
+
+                form.BackColor = System.Drawing.Color.LightGray;
+
                 form.ShowDialog();
             }
             return Result.Succeeded;

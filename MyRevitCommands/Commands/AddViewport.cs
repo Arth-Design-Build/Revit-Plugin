@@ -155,7 +155,7 @@ namespace MyRevitCommands
 
                         transaction.Commit();
                         //MessageBox.Show("Views Placed Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Task.Delay(1000).Wait();
+                        Task.Delay(2000).Wait();
                     }
 
                 });

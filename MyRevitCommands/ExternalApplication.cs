@@ -67,6 +67,14 @@ namespace MyRevitCommands
             pushButton5.LargeImage = image5;
             */
 
+            PushButtonData button5 = new PushButtonData("Button5", "Export Schedule", path, "MyRevitCommands.Schedule");
+
+            Uri imagePath5 = new Uri(@"https://www.linkpicture.com/q/p5_7.png");
+            BitmapImage image5 = new BitmapImage(imagePath5);
+
+            PushButton pushButton5 = panel1.AddItem(button5) as PushButton;
+            pushButton5.LargeImage = image5;
+
             return Result.Succeeded;
         }
     }

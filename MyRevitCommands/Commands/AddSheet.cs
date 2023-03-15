@@ -35,13 +35,15 @@ namespace MyRevitCommands
                 collect.OfCategory(BuiltInCategory.OST_TitleBlocks);
                 var titleBlocks = collect.ToElements();
 
+                IEnumerable<Element> uniqueTitleBlocks = titleBlocks.Cast<Element>().GroupBy(x => x.Name).Select(x => x.First());
+
                 // Create a checkbox for each title block
                 int top = 20;
                 var temp = "";
                 int itr = 0;
                 int f1 = 0;
                 int f2 = 0;
-                foreach (var titleBlock in titleBlocks)
+                foreach (var titleBlock in uniqueTitleBlocks)
                 {
                     if (titleBlock.Name == temp)
                     {
@@ -210,49 +212,105 @@ namespace MyRevitCommands
                                     if (sheetnocol != 0)
                                     {
                                         //TaskDialog.Show("Sheet No. Col", sheetnocol.ToString());
-                                        sheetNumber = worksheet.Cells[row, sheetnocol].Value.ToString();
+                                        if (worksheet.Cells[row, sheetnocol].Value == null)
+                                        {
+                                            sheetNumber = " ";
+                                        }
+                                        else
+                                        {
+                                            sheetNumber = worksheet.Cells[row, sheetnocol].Value.ToString();
+                                        }
                                     }
 
                                     if (sheetnamecol != 0)
                                     {
                                         //TaskDialog.Show("Sheet Name Col", sheetnamecol.ToString());
-                                        sheetName = worksheet.Cells[row, sheetnamecol].Value.ToString();
+                                        if (worksheet.Cells[row, sheetnamecol].Value == null)
+                                        {
+                                            sheetName = "Unnamed";
+                                        }
+                                        else
+                                        {
+                                            sheetName = worksheet.Cells[row, sheetnamecol].Value.ToString();
+                                        }
                                     }
 
                                     if (clientnamecol != 0)
                                     {
                                         //TaskDialog.Show("Client Name Col", clientnamecol.ToString());
-                                        clientName = worksheet.Cells[row, clientnamecol].Value.ToString();
+                                        if (worksheet.Cells[row, clientnamecol].Value == null)
+                                        {
+                                            clientName = clientName;   
+                                        }
+                                        else
+                                        {
+                                            clientName = worksheet.Cells[row, clientnamecol].Value.ToString();
+                                        }
                                     }
 
                                     if (projectnamecol != 0)
                                     {
                                         //TaskDialog.Show("Project Name Col", projectnamecol.ToString());
-                                        projectName = worksheet.Cells[row, projectnamecol].Value.ToString();
+                                        if (worksheet.Cells[row, projectnamecol].Value == null)
+                                        {
+                                            projectName = projectName;
+                                        }
+                                        else
+                                        {
+                                            projectName = worksheet.Cells[row, projectnamecol].Value.ToString();
+                                        }
                                     }
 
                                     if (projectnocol != 0)
                                     {
                                         //TaskDialog.Show("Project No. Col", projectnocol.ToString());
-                                        projectNumber = worksheet.Cells[row, projectnocol].Value.ToString();
+                                        if (worksheet.Cells[row, projectnocol].Value == null)
+                                        {
+                                            projectNumber = projectNumber;
+                                        }
+                                        else
+                                        {
+                                            projectNumber = worksheet.Cells[row, projectnocol].Value.ToString();
+                                        }
                                     }
 
                                     if (issuedatecol != 0)
                                     {
                                         //TaskDialog.Show("Issue Date Col", issuedatecol.ToString());
-                                        date = worksheet.Cells[row, issuedatecol].Value.ToString();
+                                        if (worksheet.Cells[row, issuedatecol].Value == null)
+                                        {
+                                            date = date;
+                                        }
+                                        else
+                                        {
+                                            date = worksheet.Cells[row, issuedatecol].Value.ToString();
+                                        }
                                     }
 
                                     if (drawnbycol != 0)
                                     {
                                         //TaskDialog.Show("Drawn By Col", drawnbycol.ToString());
-                                        drawnBy = worksheet.Cells[row, drawnbycol].Value.ToString();
+                                        if (worksheet.Cells[row, drawnbycol].Value == null)
+                                        {
+                                            drawnBy = "Unnamed";
+                                        }
+                                        else
+                                        {
+                                            drawnBy = worksheet.Cells[row, drawnbycol].Value.ToString();
+                                        }
                                     }
 
                                     if (checkedbycol != 0)
                                     {
                                         //TaskDialog.Show("Checked By Col", checkedbycol.ToString());
-                                        checkedBy = worksheet.Cells[row, checkedbycol].Value.ToString();
+                                        if (worksheet.Cells[row, checkedbycol].Value == null)
+                                        {
+                                            checkedBy = "Unnamed";
+                                        }
+                                        else
+                                        {
+                                            checkedBy = worksheet.Cells[row, checkedbycol].Value.ToString();
+                                        }
                                     }
 
                                     // Create a new sheet
