@@ -67,7 +67,6 @@ C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\EssentialsU
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\EnergyAnalysisUtilitiesAPI.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\DetailUIAPI.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\UIFrameworkServices.dll
-C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\ManagedMC3.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Autodesk.UI.Themes.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Xceed.Wpf.AvalonDock.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Autodesk.UI.Windows.dll
@@ -88,3 +87,8 @@ C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\pt-BR\AdWin
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\ru-RU\AdWindows.resources.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\zh-CN\AdWindows.resources.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\zh-TW\AdWindows.resources.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\AdskRcManaged.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\RevitDBCoreAPI.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\IntfATFAPI.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\TextEngineAPI.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\CompositionServices.dll
