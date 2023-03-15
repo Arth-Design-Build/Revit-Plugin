@@ -46,17 +46,19 @@ namespace MyRevitCommands
 
             // Get all views in the project
             FilteredElementCollector viewCollector = new FilteredElementCollector(doc);
-            ICollection<Element> views = viewCollector.OfClass(typeof(Autodesk.Revit.DB.View))
-                .WhereElementIsNotElementType()
-                .Cast<Autodesk.Revit.DB.View>()
-                .Where(v => (v.ViewType == ViewType.FloorPlan ||
-                             v.ViewType == ViewType.Elevation ||
-                             v.ViewType == ViewType.Section ||
-                             v.ViewType == ViewType.Rendering ||
-                             v.ViewType == ViewType.ThreeD ||
-                             v.ViewType == ViewType.DraftingView))
-                .Cast<Element>()
-                .ToList();
+            ICollection<Element> views = viewCollector
+            .OfClass(typeof(Autodesk.Revit.DB.View))
+            .WhereElementIsNotElementType()
+            .Cast<Autodesk.Revit.DB.View>()
+            .Where(v => (v.ViewType == ViewType.FloorPlan ||
+                         v.ViewType == ViewType.Elevation ||
+                         v.ViewType == ViewType.Section ||
+                         v.ViewType == ViewType.Rendering ||
+                         v.ViewType == ViewType.ThreeD ||
+                         v.ViewType == ViewType.DraftingView) &&
+                        v.CanBePrinted)
+            .Cast<Element>()
+            .ToList();
 
             // Get all views placed on sheets
             IEnumerable<ElementId> placedViewIds = placedViews.Values.SelectMany(v => v).Select(v => v.Id);
