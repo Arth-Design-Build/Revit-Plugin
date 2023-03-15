@@ -13,6 +13,7 @@ using OfficeOpenXml;
 using System.Globalization;
 using System.Reflection;
 using System.Drawing;
+using System.Net;
 
 namespace MyRevitCommands
 {
@@ -202,7 +203,24 @@ namespace MyRevitCommands
                 // Set the MinimizeBox to false to remove the minimize box.
                 form.MinimizeBox = false;
 
-                form.Icon = new Icon("favicon.ico");
+                string iconUrl = "https://www.linkpicture.com/q/favicon_77.ico";
+                WebRequest request = WebRequest.Create(iconUrl);
+                using (WebResponse response = request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    stream.CopyTo(memoryStream);
+                    memoryStream.Seek(0, SeekOrigin.Begin);
+
+                    if (memoryStream != null)
+                    {
+                        form.Icon = new Icon(memoryStream);
+                    }
+                    else
+                    {
+                        // Handle the case where the memory stream is null
+                    }
+                }
 
                 form.BackColor = System.Drawing.Color.LightGray;
 
