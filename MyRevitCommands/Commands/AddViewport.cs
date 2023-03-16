@@ -158,7 +158,6 @@ namespace MyRevitCommands
             .Where(v => (v.ViewType == ViewType.FloorPlan ||
                      v.ViewType == ViewType.Elevation ||
                      v.ViewType == ViewType.Section ||
-                     v.ViewType == ViewType.Rendering ||
                      v.ViewType == ViewType.ThreeD ||
                      v.ViewType == ViewType.DraftingView) &&
                      v.CanBePrinted)
