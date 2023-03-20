@@ -11,6 +11,7 @@ using Autodesk.Revit.UI.Selection;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Architecture;
+using Aspose.Cells;
 
 namespace MyRevitCommands
 {
@@ -60,9 +61,14 @@ namespace MyRevitCommands
             pt2 = new XYZ(10, 10, 0);
             line = Line.CreateUnbound(pt1, pt2);
             Dimension dim = doc.FamilyCreate.NewLinearDimension(doc.ActiveView, line, refArr);
-            FamilyParameter param = doc.FamilyManager.AddParameter("width",
+            /*FamilyParameter param = doc.FamilyManager.AddParameter("width",
                                                                     BuiltInParameterGroup.PG_CONSTRAINTS,
                                                                     ParameterType.Length,
+                                                                    false);
+            */
+            FamilyParameter param = doc.FamilyManager.AddParameter("width",
+                                                                    BuiltInParameterGroup.PG_CONSTRAINTS,
+                                                                    null,
                                                                     false);
 
             dim.FamilyLabel = param;
