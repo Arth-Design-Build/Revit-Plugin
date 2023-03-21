@@ -91,4 +91,5 @@ C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Autodesk.UI
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Autodesk.UI.Themes.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\CompositionServices.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\RevitAddInUtility.xml
-C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\EnergyAnalysisUtilitiesAPI.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\InfrastructureDBAPI.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\ATFRevitCoreAPI.dll
