@@ -1,16 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <RevitAddIns>
+	<!--
 	<AddIn Type="Command">
 		<Name>MyRevitCommands</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
 		<AddInId>00517B44-649C-4165-9C62-A161BED09A2D</AddInId>
-		<FullClassName>MyRevitCommands.GetElementId</FullClassName>
-		<Text>GetElementId</Text>
-		<Description>Get the Id from an element</Description>
-		<VendorId>Soumya</VendorId>
-		<VendorDescription>@HelloWorld</VendorDescription>
-		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+		<FullClassName>MyRevitCommands.GetLinkedElementId</FullClassName>
+		<Text>Get Linked Element Id</Text>
+		<Description>Get the Id of a linked element</Description>
+		<VendorId>Arth Design</VendorId>
+		<VendorDescription>soumya.t@arthdesignbuild.com</VendorDescription>
 	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>EA80751B-20D2-41B4-A95F-4D43ACBCA8A9</AddInId>
+		<FullClassName>MyRevitCommands.GetLinkedElementfromId</FullClassName>
+		<Text>Get Linked Element from Id</Text>
+		<Description>Get the linked element from Id</Description>
+		<VendorId>Arth Design</VendorId>
+		<VendorDescription>soumya.t@arthdesignbuild.com</VendorDescription>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>CB5052D6-24A3-42CC-BF10-0AF282D79010</AddInId>
+		<FullClassName>MyRevitCommands.DetectClashedTag</FullClassName>
+		<Text>Detect Clashed Tags</Text>
+		<Description>Control tag clashes</Description>
+		<VendorId>Arth Design</VendorId>
+		<VendorDescription>soumya.t@arthdesignbuild.com</VendorDescription>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>093E9E81-F971-4842-8672-3661D5921012</AddInId>
+		<FullClassName>MyRevitCommands.ClearTagWarning</FullClassName>
+		<Text>Clear Highlighted Tags</Text>
+		<Description>Clear marked tags</Description>
+		<VendorId>Arth Design</VendorId>
+		<VendorDescription>soumya.t@arthdesignbuild.com</VendorDescription>
+	</AddIn>
+	-->
 	<!--
 	<AddIn Type="Command">
 		<Name>MyRevitCommands</Name>

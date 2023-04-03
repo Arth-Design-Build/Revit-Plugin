@@ -282,14 +282,11 @@ namespace MyRevitCommands
                         TagMode tagMode = TagMode.TM_ADDBY_CATEGORY;
                         TagOrientation tagOrientation = TagOrientation.Horizontal;
 
-                        // Create a list of categories for MEP systems
                         List<BuiltInCategory> categories = new List<BuiltInCategory>();
                         categories.Add(BuiltInCategory.OST_Doors);
 
-                        // Create a filter for MEP systems
                         ElementMulticategoryFilter filter = new ElementMulticategoryFilter(categories);
 
-                        // Get a list of MEP systems in the active view
                         IList<Element> selectedElements = sel.PickElementsByRectangle();
 
                         try
@@ -299,7 +296,6 @@ namespace MyRevitCommands
                             {
                                 transaction.Start();
 
-                                // Loop through each MEP system and create a tag
                                 foreach (Element system in selectedElements)
                                 {
                                     if (system.Category.Id.IntegerValue == (int)BuiltInCategory.OST_Doors)
@@ -410,14 +406,11 @@ namespace MyRevitCommands
                         TagMode tagMode = TagMode.TM_ADDBY_CATEGORY;
                         TagOrientation tagOrientation = TagOrientation.Horizontal;
 
-                        // Create a list of categories for MEP systems
                         List<BuiltInCategory> categories = new List<BuiltInCategory>();
                         categories.Add(BuiltInCategory.OST_Windows);
 
-                        // Create a filter for MEP systems
                         ElementMulticategoryFilter filter = new ElementMulticategoryFilter(categories);
 
-                        // Get a list of MEP systems in the active view
                         IList<Element> selectedElements = sel.PickElementsByRectangle();
 
                         try
@@ -427,7 +420,6 @@ namespace MyRevitCommands
                             {
                                 transaction.Start();
 
-                                // Loop through each MEP system and create a tag
                                 foreach (Element system in selectedElements)
                                 {
                                     if (system.Category.Id.IntegerValue == (int)BuiltInCategory.OST_Windows)

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace MyRevitCommands
 {
     [Transaction(TransactionMode.ReadOnly)]
-    public class GetElementId : IExternalCommand
+    public class GetLinkedElementId : IExternalCommand
     {
         private System.Windows.Forms.Form _form;
         private Label _elementIdLabel;
