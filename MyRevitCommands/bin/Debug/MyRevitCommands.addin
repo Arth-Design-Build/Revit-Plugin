@@ -270,5 +270,60 @@
 		<VendorId>Soumya</VendorId>
 		<VendorDescription>@HelloWorld</VendorDescription>
 	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>D461C4B5-65EA-49CC-B753-542BC7C784CE</AddInId>
+		<FullClassName>MyRevitCommands.AddDoorTag</FullClassName>
+		<Text>Add Door Tag</Text>
+		<Description>Place door tags in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>CF54D49D-3868-4D24-A5C1-A2447348A897</AddInId>
+		<FullClassName>MyRevitCommands.AddWindowTag</FullClassName>
+		<Text>Add Window Tag</Text>
+		<Description>Place window tags in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>22740FA9-F127-42FD-A918-68B246415BF8</AddInId>
+		<FullClassName>MyRevitCommands.AddDuctTag</FullClassName>
+		<Text>Add Duct Tag</Text>
+		<Description>Place duct tags in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>8227387E-B58F-412C-8DE4-62BD88B4FCD5</AddInId>
+		<FullClassName>MyRevitCommands.AddPipeTag</FullClassName>
+		<Text>Add Pipe Tag</Text>
+		<Description>Place pipe tags in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>BE4B239F-6FEA-4A99-84D6-F1007F956047</AddInId>
+		<FullClassName>MyRevitCommands.AddConduitTag</FullClassName>
+		<Text>Add Conduit Tag</Text>
+		<Description>Place conduit tags in a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
 	-->
 </RevitAddIns>

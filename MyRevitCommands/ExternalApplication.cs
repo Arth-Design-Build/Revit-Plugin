@@ -40,7 +40,6 @@ namespace MyRevitCommands
             PushButton pushButton2 = panel1.AddItem(button2) as PushButton;
             pushButton2.LargeImage = image2;
 
-            /*
             PushButtonData button4 = new PushButtonData("Button4", "Add Tag", path, "MyRevitCommands.AddTag");
 
             Uri imagePath4 = new Uri(@"https://www.linkpicture.com/q/p4_11.png");
@@ -48,8 +47,8 @@ namespace MyRevitCommands
 
             PushButton pushButton4 = panel1.AddItem(button4) as PushButton;
             pushButton4.LargeImage = image4;
-            */
 
+            /*
             SplitButtonData splitButtonData = new SplitButtonData("SplitButton", "Add Tag");
             SplitButton splitButton = panel1.AddItem(splitButtonData) as SplitButton;
 
@@ -74,6 +73,7 @@ namespace MyRevitCommands
             splitButton.AddPushButton(buttonData1);
             splitButton.AddPushButton(buttonData2);
             splitButton.AddPushButton(buttonData3);
+            */
 
             /*
             PushButtonData button3 = new PushButtonData("Button3", "Add Dimension", path, "MyRevitCommands.AddAnnotation");
