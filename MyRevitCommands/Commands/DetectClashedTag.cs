@@ -28,7 +28,8 @@ namespace MyRevitCommands
             {
                 Element tag = tags[i];
                 // Get the location point of the tagged element
-                IEnumerable<ElementId> taggedElementIds = ((IndependentTag)tag).GetTaggedLocalElementIds();
+                //IEnumerable<ElementId> taggedElementIds = ((IndependentTag)tag).GetTaggedLocalElementIds();
+                IEnumerable<ElementId> taggedElementIds = null;
 
                 Element taggedElement = doc.GetElement(taggedElementIds.First());
                 LocationPoint taggedElementLocation = taggedElement.Location as LocationPoint;
@@ -57,7 +58,8 @@ namespace MyRevitCommands
                     }
 
                     // Get the location point of the other tagged element
-                    IEnumerable<ElementId> otherTaggedElementIds = ((IndependentTag)otherTag).GetTaggedLocalElementIds();
+                    //IEnumerable<ElementId> otherTaggedElementIds = ((IndependentTag)otherTag).GetTaggedLocalElementIds();
+                    IEnumerable<ElementId>  otherTaggedElementIds = null;
 
                     Element otherTaggedElement = doc.GetElement(otherTaggedElementIds.First());
                     LocationPoint otherTaggedElementLocation = otherTaggedElement.Location as LocationPoint;
