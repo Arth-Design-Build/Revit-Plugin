@@ -84,11 +84,11 @@ C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\zh-CN\AdWin
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\zh-TW\AdWindows.resources.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\EnergyAnalysisUtilitiesAPI.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\AdpSDKCSharpWrapper.dll
-C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\AdskRcManaged.dll
-C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\RevitDBCoreAPI.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\IntfATFAPI.dll
-C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\TextEngineAPI.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Autodesk.UI.Windows.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\Autodesk.UI.Themes.dll
-C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\CompositionServices.dll
 C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\RevitAddInUtility.xml
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\AdskRcManaged.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\RevitDBCoreAPI.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\TextEngineAPI.dll
+C:\Users\ASUS\source\repos\MyRevitCommands\MyRevitCommands\bin\Debug\CompositionServices.dll
