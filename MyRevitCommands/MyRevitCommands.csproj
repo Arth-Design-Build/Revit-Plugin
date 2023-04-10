@@ -120,8 +120,8 @@
     <Compile Include="Commands\Exampler\AddDimGrid.cs" />
     <Compile Include="Commands\Exampler\AddDimWall.cs" />
     <Compile Include="Commands\Exampler\AddMEPTag.cs" />
-    <Compile Include="Commands\ClearTagWarning.cs" />
-    <Compile Include="Commands\DetectClashedTag.cs" />
+    <Compile Include="Commands\Exampler\ClearTagWarning.cs" />
+    <Compile Include="Commands\Exampler\DetectClashedTag.cs" />
     <Compile Include="Commands\Exampler\FamilyReviser.cs" />
     <Compile Include="Commands\AddTag.cs" />
     <Compile Include="Commands\Exampler\AddAnnotation.cs" />

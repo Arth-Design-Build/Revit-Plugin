@@ -42,7 +42,7 @@ namespace MyRevitCommands
                 var schedules = new List<ViewSchedule>();
                 var form = new System.Windows.Forms.Form();
                 form.Size = new System.Drawing.Size(700, 400);
-                form.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
+                form.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
 
                 form.Text = "Export Schedules in Excel";
                 form.AutoScroll = true;
@@ -68,7 +68,7 @@ namespace MyRevitCommands
                 {
                     Text = "Export in Multiple Files",
                     Left = 180,
-                    Top = checkBoxes.Count * 40 + 10
+                    Top = checkBoxes.Count * 35 + 10
                 };
                 button1.AutoSize = true;
                 button1.Click += (sender, args) =>
@@ -125,7 +125,7 @@ namespace MyRevitCommands
                 {
                     Text = "Export in Single File",
                     Left = 340,
-                    Top = checkBoxes.Count * 40 + 10
+                    Top = checkBoxes.Count * 35 + 10
                 };
                 button.AutoSize = true;
                 button.Click += (sender, args) =>
@@ -190,9 +190,14 @@ namespace MyRevitCommands
                 };
                 form.Controls.Add(button1);
                 form.Controls.Add(button);
-                System.Windows.Forms.Panel blankPanel = new System.Windows.Forms.Panel();
-                blankPanel.Height = 10;
-                form.Controls.Add(blankPanel);
+
+                ListBox lb = new ListBox();
+                lb.Height = 20;
+                lb.Top = checkBoxes.Count * 35 + 50;
+                lb.BackColor = System.Drawing.Color.LightGray;
+                lb.BorderStyle= BorderStyle.None;
+                lb.Text = "";
+                form.Controls.Add(lb);
 
                 // Define the border style of the form to a dialog box.
                 form.FormBorderStyle = FormBorderStyle.FixedDialog;
