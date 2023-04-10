@@ -198,12 +198,22 @@ namespace MyRevitCommands
                 }
                 var levelPoint = new XYZ(centerPoint.X, centerPoint.Y, centerPoint.Z);
                 var R = new Reference(d);
-                var tx = new Transaction(_doc);
-                tx.Start("Tag Pipes");
-                
-                var IT = IndependentTag.Create(_doc, uidoc.ActiveView.Id, R, true, TagMode.TM_ADDBY_CATEGORY, TagOrientation.Horizontal, levelPoint);
-                IT.ChangeTypeId(tagSymbols.Id);
-                tx.Commit();
+                IndependentTag IT = null;
+
+                using (Transaction tx = new Transaction(_doc, "Tag element"))
+                {
+                    try
+                    {
+                        tx.Start();
+                        IT = IndependentTag.Create(_doc, uidoc.ActiveView.Id, R, true, TagMode.TM_ADDBY_CATEGORY, TagOrientation.Horizontal, levelPoint);
+                        IT.ChangeTypeId(tagSymbols.Id);
+                        tx.Commit();
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
 
                 var tagBB = IT.get_BoundingBox((Autodesk.Revit.DB.View)_doc.GetElement(IT.OwnerViewId));
                 var globalMax = tagBB.Max;
