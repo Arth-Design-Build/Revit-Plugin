@@ -129,6 +129,7 @@
     <Compile Include="Commands\AddSheet.cs" />
     <Compile Include="Commands\Exampler\GetLinkedElementfromId.cs" />
     <Compile Include="Commands\Exampler\PlaceView.cs" />
+    <Compile Include="Commands\ExportSpecifiedSchedule.cs" />
     <Compile Include="Commands\Schedule.cs" />
     <Compile Include="Commands\Exampler\PlaceViewport.cs" />
     <Compile Include="Commands\Exampler\Sheets.cs" />

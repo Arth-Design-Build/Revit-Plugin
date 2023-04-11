@@ -253,6 +253,17 @@
 		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
 	</AddIn>
 	-->
+	<AddIn Type="Command">
+		<Name>MyRevitCommands</Name>
+		<Assembly>MyRevitCommands.dll</Assembly>
+		<AddInId>DCD2A100-88AA-4DDE-9D62-0383FC96D8BA</AddInId>
+		<FullClassName>MyRevitCommands.ExportSpecifiedSchedule</FullClassName>
+		<Text>Export Specified Schedule</Text>
+		<Description>Export specified schedule from a document</Description>
+		<VendorId>Soumya</VendorId>
+		<VendorDescription>@HelloWorld</VendorDescription>
+		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
+	</AddIn>
 	<AddIn Type="Application">
 		<Name>ApplicationPlugin</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
