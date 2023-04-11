@@ -19,8 +19,6 @@ namespace MyRevitCommands
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             string xlSheetName;
-            var folderBrowser = new FolderBrowserDialog();
-            folderBrowser.Description = "Select Folder to Save the Exported Schedules";
             if (true)
             {
                 var exportPath = "C:\\Users\\ASUS\\Downloads" + "\\";
@@ -117,8 +115,6 @@ namespace MyRevitCommands
                 TaskDialog.Show("Export Schedules", "Schedules Exported Successfully!");
                 return Result.Succeeded;
             }
-
-            return Result.Cancelled;
         }
     }
 }
