@@ -266,7 +266,7 @@ namespace MyRevitCommands
 
                 var distanceXYZ = Math.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
 
-                if (distanceXYZ < 3)
+                if (distanceXYZ < 5)
                 {
                     //TaskDialog.Show("Distance", "Not Staisfying");
                     continue;
