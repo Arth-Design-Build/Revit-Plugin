@@ -13,13 +13,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace MyRevitCommands
 {
     [TransactionAttribute(TransactionMode.Manual)]
-    public class AddConduitTag : IExternalCommand
+    public class AddEquipmentTag : IExternalCommand
     {
         private Document _doc;
         private UIDocument _uiDoc;
 
         /*
-        public AddConduitTag(UIApplication uiapp)
+        public AddEquipmentTag(UIApplication uiapp)
         {
             _uiDoc = uiapp.ActiveUIDocument;
             _doc = _uiDoc.Document;
@@ -83,30 +83,30 @@ namespace MyRevitCommands
             var selection = uidoc.Selection;
             IList<Element> selectedElements = sel.PickElementsByRectangle();
 
-            var ConduitFiltered = new List<Element>();
+            var EquipmentFiltered = new List<Element>();
             foreach (var elem in selectedElements)
             {
-                if (elem.Category.Id.IntegerValue == (int)BuiltInCategory.OST_Conduit || elem.Category.Id.IntegerValue == (int)BuiltInCategory.OST_ConduitFitting)
+                if (elem.Category.Id.IntegerValue == (int)BuiltInCategory.OST_MechanicalEquipment)
                 {
-                    //FamilyInstance Conduit = (FamilyInstance)elem;
-                    ConduitFiltered.Add(elem);
+                    //FamilyInstance Equipment = (FamilyInstance)elem;
+                    EquipmentFiltered.Add(elem);
                 }
             }
 
             var scaleFactor = 5.0;
 
             var avoidLoc = new List<XYZ>();
-            foreach (var d in ConduitFiltered)
+            foreach (var d in EquipmentFiltered)
             {
                 BoundingBoxXYZ boundingBox1 = d.get_BoundingBox(_doc.ActiveView);
                 XYZ centerPoint = (boundingBox1.Max + boundingBox1.Min) / 2;
                 if (centerPoint != null) avoidLoc.Add(new XYZ(centerPoint.X, centerPoint.Y, centerPoint.Z));
             }
 
-            // Get a list of available families for Conduits
+            // Get a list of available families for Equipments
             FilteredElementCollector fec = new FilteredElementCollector(_doc);
             fec.OfClass(typeof(Family));
-            List<Family> families = fec.Cast<Family>().ToList().Where(f => f.Name.Contains("Conduit") && f.Name.Contains("Tag")).ToList();
+            List<Family> families = fec.Cast<Family>().ToList().Where(f => f.Name.Contains("Equipment") && f.Name.Contains("Tag")).ToList();
             List<string> familyNames = new List<string>();
             foreach (Family family in families)
             {
@@ -172,7 +172,7 @@ namespace MyRevitCommands
             var tagFamily = selectedFamily;
 
             var tagSymbols = new FilteredElementCollector(_doc)
-            .OfCategory(BuiltInCategory.OST_ConduitTags)
+            .OfCategory(BuiltInCategory.OST_MechanicalEquipmentTags)
             .OfClass(typeof(FamilySymbol))
             .Cast<FamilySymbol>()
             .FirstOrDefault(fs => fs.Family.Id == tagFamily.Id);
@@ -245,9 +245,9 @@ namespace MyRevitCommands
                 }
             }
 
-            //TaskDialog.Show("Count", ConduitFiltered.Count.ToString());
+            //TaskDialog.Show("Count", EquipmentFiltered.Count.ToString());
 
-            foreach (var d in ConduitFiltered)
+            foreach (var d in EquipmentFiltered)
             {
                 BoundingBoxXYZ boundingBox2 = d.get_BoundingBox(_doc.ActiveView);
                 XYZ centerPoint = (boundingBox2.Max + boundingBox2.Min) / 2;
@@ -299,14 +299,14 @@ namespace MyRevitCommands
 
                 foreach (var point in avoidPoints)
                 {
-                    var closestConduit = FindClosestConduit(point, avoidLoc);
-                    if (closestConduit != null)
+                    var closestEquipment = FindClosestEquipment(point, avoidLoc);
+                    if (closestEquipment != null)
                     {
-                        var distance = closestConduit.DistanceTo(point);
+                        var distance = closestEquipment.DistanceTo(point);
                         if (distance < scaleFactor)
                         {
-                            var direction = (point - closestConduit).Normalize();
-                            var newPoint = closestConduit + (direction * scaleFactor);
+                            var direction = (point - closestEquipment).Normalize();
+                            var newPoint = closestEquipment + (direction * scaleFactor);
                             var tx1 = new Transaction(_doc);
                             tx1.Start("Modification of Tags");
                             IT.TagHeadPosition = newPoint;
@@ -320,20 +320,20 @@ namespace MyRevitCommands
             return Result.Succeeded;
         }
 
-        private XYZ FindClosestConduit(XYZ point, List<XYZ> avoidLoc)
+        private XYZ FindClosestEquipment(XYZ point, List<XYZ> avoidLoc)
         {
-            XYZ closestConduit = null;
+            XYZ closestEquipment = null;
             var closestDistance = double.MaxValue;
-            foreach (var Conduit in avoidLoc)
+            foreach (var Equipment in avoidLoc)
             {
-                var distance = Conduit.DistanceTo(point);
+                var distance = Equipment.DistanceTo(point);
                 if (distance < closestDistance)
                 {
-                    closestConduit = Conduit;
+                    closestEquipment = Equipment;
                     closestDistance = distance;
                 }
             }
-            return closestConduit;
+            return closestEquipment;
         }
     }
 }

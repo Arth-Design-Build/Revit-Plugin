@@ -40,7 +40,7 @@ namespace MyRevitCommands
             };
             var radio = new System.Windows.Forms.RadioButton
             {
-                Text = "Conduit"
+                Text = "Mechanical Equipments"
             };
             radio.AutoSize = true;
             radio.Left = 20;
@@ -211,8 +211,8 @@ namespace MyRevitCommands
                     Selection sel = uiDoc.Selection;
 
                     var message1 = "";
-                    AddDoorTag addDoorTag = new AddDoorTag();
-                    addDoorTag.Execute(commandData, ref message1, elements);
+                    AddDoorTag addTag = new AddDoorTag();
+                    addTag.Execute(commandData, ref message1, elements);
                     return Result.Succeeded;
                 }
                 else
@@ -222,8 +222,8 @@ namespace MyRevitCommands
                     Selection sel = uiDoc.Selection;
 
                     var message1 = "";
-                    AddWindowTag addDoorTag = new AddWindowTag();
-                    addDoorTag.Execute(commandData, ref message1, elements);
+                    AddWindowTag addTag = new AddWindowTag();
+                    addTag.Execute(commandData, ref message1, elements);
                     return Result.Succeeded;
                 }
             }
@@ -237,8 +237,8 @@ namespace MyRevitCommands
                     Selection sel = uiDoc.Selection;
 
                     var message1 = "";
-                    AddConduitTag addDoorTag = new AddConduitTag();
-                    addDoorTag.Execute(commandData, ref message1, elements);
+                    AddEquipmentTag addTag = new AddEquipmentTag();
+                    addTag.Execute(commandData, ref message1, elements);
                     return Result.Succeeded;
                 }
                 else
@@ -250,8 +250,8 @@ namespace MyRevitCommands
                         Selection sel = uiDoc.Selection;
 
                         var message1 = "";
-                        AddDuctTag addDoorTag = new AddDuctTag();
-                        addDoorTag.Execute(commandData, ref message1, elements);
+                        AddDuctTag addTag = new AddDuctTag();
+                        addTag.Execute(commandData, ref message1, elements);
                         return Result.Succeeded;
                     }
                     else
@@ -261,8 +261,8 @@ namespace MyRevitCommands
                         Selection sel = uiDoc.Selection;
 
                         var message1 = "";
-                        AddPipeTag addDoorTag = new AddPipeTag();
-                        addDoorTag.Execute(commandData, ref message1, elements);
+                        AddPipeTag addTag = new AddPipeTag();
+                        addTag.Execute(commandData, ref message1, elements);
                         return Result.Succeeded;
                     }
                 }
