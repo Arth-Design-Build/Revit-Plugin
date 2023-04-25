@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace MyRevitCommands
 {
     [TransactionAttribute(TransactionMode.Manual)]
-    public class AddPipeTag: IExternalCommand
+    public class AddPipeTag : IExternalCommand
     {
         private Document _doc;
         private UIDocument _uiDoc;
@@ -102,10 +103,10 @@ namespace MyRevitCommands
                 if (centerPoint != null) avoidLoc.Add(new XYZ(centerPoint.X, centerPoint.Y, centerPoint.Z));
             }
 
-            // Get a list of available families for ducts
+            // Get a list of available families for Pipes
             FilteredElementCollector fec = new FilteredElementCollector(_doc);
             fec.OfClass(typeof(Family));
-            List<Family> families = fec.Cast<Family>().ToList().Where(f => f.Name.Contains("Pipe Tag") || f.Name.Contains("Pipe_Tag")).ToList();
+            List<Family> families = fec.Cast<Family>().ToList().Where(f => f.Name.Contains("Pipe") && f.Name.Contains("Tag")).ToList();
             List<string> familyNames = new List<string>();
             foreach (Family family in families)
             {
@@ -155,6 +156,7 @@ namespace MyRevitCommands
 
             // Show the form and get the selected family
             Family selectedFamily = null;
+
             if (forma.ShowDialog() == DialogResult.OK)
             {
                 foreach (System.Windows.Forms.Control control in groupBox.Controls)
@@ -167,11 +169,7 @@ namespace MyRevitCommands
                 }
             }
 
-            var tagFamilyName = "Pipe Tag"; // replace with your desired tag family name
-            var tagFamily = new FilteredElementCollector(_doc)
-                .OfClass(typeof(Family))
-                .Cast<Family>()
-                .FirstOrDefault(f => f.Name.Contains("Pipe Tag") || f.Name.Contains("Pipe_Tag"));
+            var tagFamily = selectedFamily;
 
             var tagSymbols = new FilteredElementCollector(_doc)
             .OfCategory(BuiltInCategory.OST_PipeTags)
@@ -181,8 +179,70 @@ namespace MyRevitCommands
 
             if (tagSymbols == null)
             {
-                //TaskDialog.Show("Error", "No Tag Symbols Found");
+                TaskDialog.Show("Error", "No Tag Symbols Found");
                 return Result.Failed;
+            }
+
+            System.Windows.Forms.Form formb = new System.Windows.Forms.Form();
+            formb.Text = "Do You Want to Add Leader?";
+            formb.StartPosition = FormStartPosition.CenterScreen;
+            formb.FormBorderStyle = FormBorderStyle.FixedDialog;
+            formb.MinimizeBox = false;
+            formb.MaximizeBox = false;
+            formb.ShowInTaskbar = false;
+            formb.AutoScroll = true;
+            formb.ClientSize = new Size(350, 150);
+            formb.BackColor = System.Drawing.Color.LightGray;
+
+            GroupBox groupBox1 = new GroupBox();
+            groupBox1.Location = new System.Drawing.Point(10, 10);
+            groupBox1.Size = new Size(330, 90);
+            formb.Controls.Add(groupBox1);
+
+            RadioButton cb1 = new RadioButton();
+            cb1.Text = "Yes, Use Leader";
+            cb1.AutoSize = true;
+            cb1.Location = new System.Drawing.Point(25, 45);
+            groupBox1.Controls.Add(cb1);
+
+            RadioButton cb2 = new RadioButton();
+            cb2.Text = "No, Don't Use Leader";
+            cb2.AutoSize = true;
+            cb2.Location = new System.Drawing.Point(165, 45);
+            groupBox1.Controls.Add(cb2);
+
+            System.Windows.Forms.Button okButton1 = new System.Windows.Forms.Button();
+            okButton1.Text = "OK";
+            okButton1.DialogResult = DialogResult.OK;
+            okButton1.Location = new System.Drawing.Point(100, 110);
+            formb.Controls.Add(okButton1);
+
+            System.Windows.Forms.Button cancelButton1 = new System.Windows.Forms.Button();
+            cancelButton1.Text = "Cancel";
+            cancelButton1.DialogResult = DialogResult.Cancel;
+            cancelButton1.Location = new System.Drawing.Point(180, 110);
+            formb.Controls.Add(cancelButton1);
+
+            bool leaderStatus = true;
+
+            if (formb.ShowDialog() == DialogResult.OK)
+            {
+                foreach (System.Windows.Forms.Control control in groupBox1.Controls)
+                {
+                    if (control is RadioButton && ((RadioButton)control).Checked)
+                    {
+                        if (control.Text.ToString() == "Yes, Use Leader")
+                        {
+                            leaderStatus = true;
+                            break;
+                        }
+                        else
+                        {
+                            leaderStatus = false;
+                            break;
+                        }
+                    }
+                }
             }
 
             //TaskDialog.Show("Count", PipeFiltered.Count.ToString());
@@ -196,6 +256,22 @@ namespace MyRevitCommands
                     //TaskDialog.Show("CenterPoint", "Null");
                     continue;
                 }
+
+                var maxPoint = boundingBox2.Max;
+                var minPoint = boundingBox2.Min;
+
+                var deltaX = maxPoint.X - minPoint.X;
+                var deltaY = maxPoint.Y - minPoint.Y;
+                var deltaZ = maxPoint.Z - minPoint.Z;
+
+                var distanceXYZ = Math.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+
+                if (distanceXYZ < 3)
+                {
+                    //TaskDialog.Show("Distance", "Not Staisfying");
+                    continue;
+                }
+
                 var levelPoint = new XYZ(centerPoint.X, centerPoint.Y, centerPoint.Z);
                 var R = new Reference(d);
                 IndependentTag IT = null;
@@ -205,7 +281,7 @@ namespace MyRevitCommands
                     try
                     {
                         tx.Start();
-                        IT = IndependentTag.Create(_doc, uidoc.ActiveView.Id, R, true, TagMode.TM_ADDBY_CATEGORY, TagOrientation.Horizontal, levelPoint);
+                        IT = IndependentTag.Create(_doc, uidoc.ActiveView.Id, R, leaderStatus, TagMode.TM_ADDBY_CATEGORY, TagOrientation.Horizontal, levelPoint);
                         IT.ChangeTypeId(tagSymbols.Id);
                         tx.Commit();
                     }

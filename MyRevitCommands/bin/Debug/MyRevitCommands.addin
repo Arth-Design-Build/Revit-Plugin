@@ -252,7 +252,6 @@
 		<VendorDescription>@HelloWorld</VendorDescription>
 		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
 	</AddIn>
-	-->
 	<AddIn Type="Command">
 		<Name>MyRevitCommands</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
@@ -264,8 +263,9 @@
 		<VendorDescription>@HelloWorld</VendorDescription>
 		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
 	</AddIn>
+	-->
 	<AddIn Type="Application">
-		<Name>ApplicationPlugin</Name>
+		<Name>Arth Plugin</Name>
 		<Assembly>MyRevitCommands.dll</Assembly>
 		<AddInId>78A04A61-84C8-4FCD-AD8E-52D1DEBAAF23</AddInId>
 		<FullClassName>MyRevitCommands.ExternalApplication</FullClassName>

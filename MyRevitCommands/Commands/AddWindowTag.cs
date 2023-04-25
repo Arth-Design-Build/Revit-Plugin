@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace MyRevitCommands
 {
     [TransactionAttribute(TransactionMode.Manual)]
-    public class AddWindowTag: IExternalCommand
+    public class AddWindowTag : IExternalCommand
     {
         private Document _doc;
         private UIDocument _uiDoc;
@@ -82,34 +83,30 @@ namespace MyRevitCommands
             var selection = uidoc.Selection;
             IList<Element> selectedElements = sel.PickElementsByRectangle();
 
-            // Filter the windows based on their location
-            var windowFiltered = new List<FamilyInstance>();
+            var WindowFiltered = new List<Element>();
             foreach (var elem in selectedElements)
             {
-                if (elem is FamilyInstance window && window.Category.Id.IntegerValue == (int)BuiltInCategory.OST_Windows)
+                if (elem.Category.Id.IntegerValue == (int)BuiltInCategory.OST_Windows)
                 {
-                    windowFiltered.Add(window);
+                    //FamilyInstance Window = (FamilyInstance)elem;
+                    WindowFiltered.Add(elem);
                 }
             }
 
             var scaleFactor = 5.0;
-            var windowFiltered1 = new FilteredElementCollector(_doc)
-                .OfClass(typeof(FamilyInstance))
-                .OfCategory(BuiltInCategory.OST_Windows)
-                .WhereElementIsNotElementType()
-                .ToElements();
 
             var avoidLoc = new List<XYZ>();
-            foreach (var d in windowFiltered)
+            foreach (var d in WindowFiltered)
             {
-                var f = (d.Location as LocationPoint)?.Point;
-                if (f != null) avoidLoc.Add(new XYZ(f.X, f.Y, f.Z));
+                BoundingBoxXYZ boundingBox1 = d.get_BoundingBox(_doc.ActiveView);
+                XYZ centerPoint = (boundingBox1.Max + boundingBox1.Min) / 2;
+                if (centerPoint != null) avoidLoc.Add(new XYZ(centerPoint.X, centerPoint.Y, centerPoint.Z));
             }
 
-            // Get a list of available families for ducts
+            // Get a list of available families for Windows
             FilteredElementCollector fec = new FilteredElementCollector(_doc);
             fec.OfClass(typeof(Family));
-            List<Family> families = fec.Cast<Family>().ToList().Where(f => f.Name.Contains("Window Tag") || f.Name.Contains("Window_Tag")).ToList();
+            List<Family> families = fec.Cast<Family>().ToList().Where(f => f.Name.Contains("Window") && f.Name.Contains("Tag")).ToList();
             List<string> familyNames = new List<string>();
             foreach (Family family in families)
             {
@@ -159,6 +156,7 @@ namespace MyRevitCommands
 
             // Show the form and get the selected family
             Family selectedFamily = null;
+
             if (forma.ShowDialog() == DialogResult.OK)
             {
                 foreach (System.Windows.Forms.Control control in groupBox.Controls)
@@ -171,7 +169,6 @@ namespace MyRevitCommands
                 }
             }
 
-            var tagFamilyName = "Window Tag"; // replace with your desired tag family name
             var tagFamily = selectedFamily;
 
             var tagSymbols = new FilteredElementCollector(_doc)
@@ -186,17 +183,113 @@ namespace MyRevitCommands
                 return Result.Failed;
             }
 
-            foreach (var d in windowFiltered)
+            System.Windows.Forms.Form formb = new System.Windows.Forms.Form();
+            formb.Text = "Do You Want to Add Leader?";
+            formb.StartPosition = FormStartPosition.CenterScreen;
+            formb.FormBorderStyle = FormBorderStyle.FixedDialog;
+            formb.MinimizeBox = false;
+            formb.MaximizeBox = false;
+            formb.ShowInTaskbar = false;
+            formb.AutoScroll = true;
+            formb.ClientSize = new Size(350, 150);
+            formb.BackColor = System.Drawing.Color.LightGray;
+
+            GroupBox groupBox1 = new GroupBox();
+            groupBox1.Location = new System.Drawing.Point(10, 10);
+            groupBox1.Size = new Size(330, 90);
+            formb.Controls.Add(groupBox1);
+
+            RadioButton cb1 = new RadioButton();
+            cb1.Text = "Yes, Use Leader";
+            cb1.AutoSize = true;
+            cb1.Location = new System.Drawing.Point(25, 45);
+            groupBox1.Controls.Add(cb1);
+
+            RadioButton cb2 = new RadioButton();
+            cb2.Text = "No, Don't Use Leader";
+            cb2.AutoSize = true;
+            cb2.Location = new System.Drawing.Point(165, 45);
+            groupBox1.Controls.Add(cb2);
+
+            System.Windows.Forms.Button okButton1 = new System.Windows.Forms.Button();
+            okButton1.Text = "OK";
+            okButton1.DialogResult = DialogResult.OK;
+            okButton1.Location = new System.Drawing.Point(100, 110);
+            formb.Controls.Add(okButton1);
+
+            System.Windows.Forms.Button cancelButton1 = new System.Windows.Forms.Button();
+            cancelButton1.Text = "Cancel";
+            cancelButton1.DialogResult = DialogResult.Cancel;
+            cancelButton1.Location = new System.Drawing.Point(180, 110);
+            formb.Controls.Add(cancelButton1);
+
+            bool leaderStatus = true;
+
+            if (formb.ShowDialog() == DialogResult.OK)
             {
-                var lp = (d.Location as LocationPoint)?.Point;
-                if (lp == null) continue;
-                var levelPoint = new XYZ(lp.X, lp.Y, lp.Z);
+                foreach (System.Windows.Forms.Control control in groupBox1.Controls)
+                {
+                    if (control is RadioButton && ((RadioButton)control).Checked)
+                    {
+                        if (control.Text.ToString() == "Yes, Use Leader")
+                        {
+                            leaderStatus = true;
+                            break;
+                        }
+                        else
+                        {
+                            leaderStatus = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //TaskDialog.Show("Count", WindowFiltered.Count.ToString());
+
+            foreach (var d in WindowFiltered)
+            {
+                BoundingBoxXYZ boundingBox2 = d.get_BoundingBox(_doc.ActiveView);
+                XYZ centerPoint = (boundingBox2.Max + boundingBox2.Min) / 2;
+                if (centerPoint == null)
+                {
+                    //TaskDialog.Show("CenterPoint", "Null");
+                    continue;
+                }
+
+                var maxPoint = boundingBox2.Max;
+                var minPoint = boundingBox2.Min;
+
+                var deltaX = maxPoint.X - minPoint.X;
+                var deltaY = maxPoint.Y - minPoint.Y;
+                var deltaZ = maxPoint.Z - minPoint.Z;
+
+                var distanceXYZ = Math.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+
+                if (distanceXYZ < 3)
+                {
+                    //TaskDialog.Show("Distance", "Not Staisfying");
+                    continue;
+                }
+
+                var levelPoint = new XYZ(centerPoint.X, centerPoint.Y, centerPoint.Z);
                 var R = new Reference(d);
-                var tx = new Transaction(_doc);
-                tx.Start("Tag Windows");
-                var IT = IndependentTag.Create(_doc, uidoc.ActiveView.Id, R, true, TagMode.TM_ADDBY_CATEGORY, TagOrientation.Horizontal, levelPoint);
-                IT.ChangeTypeId(tagSymbols.Id);
-                tx.Commit();
+                IndependentTag IT = null;
+
+                using (Transaction tx = new Transaction(_doc, "Tag element"))
+                {
+                    try
+                    {
+                        tx.Start();
+                        IT = IndependentTag.Create(_doc, uidoc.ActiveView.Id, R, leaderStatus, TagMode.TM_ADDBY_CATEGORY, TagOrientation.Horizontal, levelPoint);
+                        IT.ChangeTypeId(tagSymbols.Id);
+                        tx.Commit();
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
 
                 var tagBB = IT.get_BoundingBox((Autodesk.Revit.DB.View)_doc.GetElement(IT.OwnerViewId));
                 var globalMax = tagBB.Max;
@@ -231,12 +324,12 @@ namespace MyRevitCommands
         {
             XYZ closestWindow = null;
             var closestDistance = double.MaxValue;
-            foreach (var window in avoidLoc)
+            foreach (var Window in avoidLoc)
             {
-                var distance = window.DistanceTo(point);
+                var distance = Window.DistanceTo(point);
                 if (distance < closestDistance)
                 {
-                    closestWindow = window;
+                    closestWindow = Window;
                     closestDistance = distance;
                 }
             }
