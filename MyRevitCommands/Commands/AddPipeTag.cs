@@ -247,6 +247,55 @@ namespace MyRevitCommands
 
             //TaskDialog.Show("Count", PipeFiltered.Count.ToString());
 
+            System.Windows.Forms.Form formc = new System.Windows.Forms.Form();
+            formc.Text = "Specify the Minimum Pipe Length in Foot";
+            formc.StartPosition = FormStartPosition.CenterScreen;
+            formc.FormBorderStyle = FormBorderStyle.FixedDialog;
+            formc.MinimizeBox = false;
+            formc.MaximizeBox = false;
+            formc.ShowInTaskbar = false;
+            formc.AutoScroll = true;
+            formc.ClientSize = new Size(350, 150);
+            formc.BackColor = System.Drawing.Color.LightGray;
+
+            GroupBox groupBox2 = new GroupBox();
+            groupBox2.Location = new System.Drawing.Point(10, 10);
+            groupBox2.Size = new Size(330, 90);
+            formc.Controls.Add(groupBox2);
+
+            System.Windows.Forms.TextBox tb = new System.Windows.Forms.TextBox();
+            tb.AutoSize = true;
+            tb.Location = new System.Drawing.Point(115, 45);
+            groupBox2.Controls.Add(tb);
+
+            System.Windows.Forms.Button okButton2 = new System.Windows.Forms.Button();
+            okButton2.Text = "OK";
+            okButton2.DialogResult = DialogResult.OK;
+            okButton2.Location = new System.Drawing.Point(100, 110);
+            formc.Controls.Add(okButton2);
+
+            System.Windows.Forms.Button cancelButton2 = new System.Windows.Forms.Button();
+            cancelButton2.Text = "Cancel";
+            cancelButton2.DialogResult = DialogResult.Cancel;
+            cancelButton2.Location = new System.Drawing.Point(180, 110);
+            formc.Controls.Add(cancelButton2);
+
+            string minLength = null;
+
+            if (formc.ShowDialog() == DialogResult.OK)
+            {
+                foreach (System.Windows.Forms.Control control in groupBox2.Controls)
+                {
+                    if (control is System.Windows.Forms.TextBox)
+                    {
+                        minLength = control.Text;
+                    }
+                }
+            }
+
+            //TaskDialog.Show("Minimum Length", minLength);
+            int mLength = int.Parse(minLength);
+
             foreach (var d in PipeFiltered)
             {
                 BoundingBoxXYZ boundingBox2 = d.get_BoundingBox(_doc.ActiveView);
@@ -266,7 +315,7 @@ namespace MyRevitCommands
 
                 var distanceXYZ = Math.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
 
-                if (distanceXYZ < 4)
+                if (distanceXYZ < mLength)
                 {
                     //TaskDialog.Show("Distance", "Not Staisfying");
                     continue;
