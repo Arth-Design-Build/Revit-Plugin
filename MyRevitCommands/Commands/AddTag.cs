@@ -40,7 +40,7 @@ namespace MyRevitCommands
             };
             var radio = new System.Windows.Forms.RadioButton
             {
-                Text = "Mechanical Equipments"
+                Text = "Doors"
             };
             radio.AutoSize = true;
             radio.Left = 20;
@@ -63,7 +63,7 @@ namespace MyRevitCommands
 
             var radio1 = new System.Windows.Forms.RadioButton
             {
-                Text = "Doors"
+                Text = "Ducts"
             };
             radio1.AutoSize = true;
             radio1.Left = 20;
@@ -86,7 +86,7 @@ namespace MyRevitCommands
 
             var radio2 = new System.Windows.Forms.RadioButton
             {
-                Text = "Ducts"
+                Text = "Mechanical Equipments"
             };
             radio2.AutoSize = true;
             radio2.Left = 20;
@@ -202,9 +202,9 @@ namespace MyRevitCommands
 
             form.ShowDialog();
 
-            if (flag2 == 1 || flag5 == 1)
+            if (flag1 == 1 || flag5 == 1)
             {
-                if(flag2 == 1)
+                if(flag1 == 1)
                 {
                     UIApplication uiapp = uidoc.Application;
                     UIDocument uiDoc = uiapp.ActiveUIDocument;
@@ -230,14 +230,14 @@ namespace MyRevitCommands
 
             else
             {
-                if(flag1 == 1)
+                if(flag2 == 1)
                 {
                     UIApplication uiapp = uidoc.Application;
                     UIDocument uiDoc = uiapp.ActiveUIDocument;
                     Selection sel = uiDoc.Selection;
 
                     var message1 = "";
-                    AddEquipmentTag addTag = new AddEquipmentTag();
+                    AddDuctTag addTag = new AddDuctTag();
                     addTag.Execute(commandData, ref message1, elements);
                     return Result.Succeeded;
                 }
@@ -250,7 +250,7 @@ namespace MyRevitCommands
                         Selection sel = uiDoc.Selection;
 
                         var message1 = "";
-                        AddDuctTag addTag = new AddDuctTag();
+                        AddEquipmentTag addTag = new AddEquipmentTag();
                         addTag.Execute(commandData, ref message1, elements);
                         return Result.Succeeded;
                     }

@@ -106,7 +106,7 @@ namespace MyRevitCommands
             // Get a list of available families for Equipments
             FilteredElementCollector fec = new FilteredElementCollector(_doc);
             fec.OfClass(typeof(Family));
-            List<Family> families = fec.Cast<Family>().ToList().Where(f => f.Name.Contains("Equipment") && f.Name.Contains("Tag")).ToList();
+            List<Family> families = fec.Cast<Family>().ToList().Where(f => f.Name.Contains("Mechanical") && f.Name.Contains("Equipment") && f.Name.Contains("Tag")).ToList();
             List<string> familyNames = new List<string>();
             foreach (Family family in families)
             {
@@ -266,7 +266,7 @@ namespace MyRevitCommands
 
                 var distanceXYZ = Math.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
 
-                if (distanceXYZ < 5)
+                if (distanceXYZ < 4)
                 {
                     //TaskDialog.Show("Distance", "Not Staisfying");
                     continue;
