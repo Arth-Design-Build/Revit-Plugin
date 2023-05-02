@@ -123,11 +123,13 @@ namespace MyRevitCommands
             forma.ShowInTaskbar = false;
             forma.AutoScroll = true;
             forma.ClientSize = new Size(500, 200);
+            forma.AutoSize = true;
             forma.BackColor = System.Drawing.Color.LightGray;
 
             GroupBox groupBox = new GroupBox();
             groupBox.Location = new System.Drawing.Point(10, 10);
             groupBox.Size = new Size(480, 140);
+            groupBox.AutoSize = true;
             forma.Controls.Add(groupBox);
 
             int y = 20;
@@ -145,13 +147,13 @@ namespace MyRevitCommands
             System.Windows.Forms.Button okButton = new System.Windows.Forms.Button();
             okButton.Text = "OK";
             okButton.DialogResult = DialogResult.OK;
-            okButton.Location = new System.Drawing.Point(180, 160);
+            okButton.Location = new System.Drawing.Point(180, y+50);
             forma.Controls.Add(okButton);
 
             System.Windows.Forms.Button cancelButton = new System.Windows.Forms.Button();
             cancelButton.Text = "Cancel";
             cancelButton.DialogResult = DialogResult.Cancel;
-            cancelButton.Location = new System.Drawing.Point(260, 160);
+            cancelButton.Location = new System.Drawing.Point(260, y+50);
             forma.Controls.Add(cancelButton);
 
             // Show the form and get the selected family
@@ -202,13 +204,13 @@ namespace MyRevitCommands
             RadioButton cb1 = new RadioButton();
             cb1.Text = "Yes, Use Leader";
             cb1.AutoSize = true;
-            cb1.Location = new System.Drawing.Point(25, 45);
+            cb1.Location = new System.Drawing.Point(25, 40);
             groupBox1.Controls.Add(cb1);
 
             RadioButton cb2 = new RadioButton();
             cb2.Text = "No, Don't Use Leader";
             cb2.AutoSize = true;
-            cb2.Location = new System.Drawing.Point(165, 45);
+            cb2.Location = new System.Drawing.Point(165, 40);
             groupBox1.Controls.Add(cb2);
 
             System.Windows.Forms.Button okButton1 = new System.Windows.Forms.Button();
