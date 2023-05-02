@@ -120,7 +120,7 @@
     <Compile Include="Commands\AddEquipmentTag.cs" />
     <Compile Include="Commands\AddPipeTag.cs" />
     <Compile Include="Commands\AddDuctTag.cs" />
-    <Compile Include="Commands\AlignTag.cs" />
+    <Compile Include="Commands\Beta\AlignTag.cs" />
     <Compile Include="Commands\AddWindowTag.cs" />
     <Compile Include="Commands\AddDoorTag.cs" />
     <Compile Include="Commands\Exampler\AddDimComponent.cs" />

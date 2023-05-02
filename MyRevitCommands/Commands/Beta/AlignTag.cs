@@ -25,14 +25,9 @@ namespace MyRevitCommands
 
                 // Prompt the user to enter the offset value
                 double offset;
-                if (!double.TryParse(PromptForOffset(), out offset))
-                {
-                    TaskDialog.Show("Error", "Invalid offset value");
-                    return Result.Failed;
-                }
 
                 // Convert the offset to feet (Revit's internal unit)
-                offset = UnitUtils.ConvertToInternalUnits(offset / 304.8, UnitTypeId.Feet);
+                offset = UnitUtils.ConvertToInternalUnits(1500 / 304.8, UnitTypeId.Feet);
 
                 // Align the tags
                 AlignSelectedTags(doc, selectedTags, offset);
@@ -46,44 +41,38 @@ namespace MyRevitCommands
             }
         }
 
-        private string PromptForOffset()
-        {
-            TaskDialog inputDialog = new TaskDialog("Enter Offset")
-            {
-                MainInstruction = "Enter the offset value in millimeters:",
-                MainIcon = TaskDialogIcon.TaskDialogIconNone
-            };
-            inputDialog.AddCommandLink(TaskDialogCommandLinkId.CommandLink1, "OK");
-            inputDialog.AddCommandLink(TaskDialogCommandLinkId.CommandLink2, "Cancel");
-            inputDialog.Show();
-
-            return inputDialog.MainInstruction;
-        }
-
         private void AlignSelectedTags(Document doc, IList<Reference> selectedTags, double offset)
         {
             using (Transaction trans = new Transaction(doc, "Align Tags"))
             {
                 trans.Start();
 
+                // Get the IndependentTag elements from the selection set
+                List<IndependentTag> tags = selectedTags
+                    .Select(r => doc.GetElement(r))
+                    .OfType<IndependentTag>()
+                    .Where(e => e.Location != null && e.Location.GetType() == typeof(LocationPoint))
+                    .Cast<IndependentTag>()
+                    .ToList();
+
                 // Sort the tags by their Y-coordinate
-                var sortedTags = selectedTags.Select(r => doc.GetElement(r))
-                                             .OrderByDescending(e => ((LocationPoint)e.Location).Point.Y)
-                                             .ToList();
+                tags.Sort((t1, t2) =>
+                {
+                    Location loc1 = t1.Location as Location;
+                    Location loc2 = t2.Location as Location;
+                    double y1 = loc1 is LocationPoint ? ((LocationPoint)loc1).Point.Y : double.MinValue;
+                    double y2 = loc2 is LocationPoint ? ((LocationPoint)loc2).Point.Y : double.MinValue;
+                    return y2.CompareTo(y1);
+                });
 
                 // Align the tags with the specified offset
-                for (int i = 1; i < sortedTags.Count; i++)
+                double startY = ((LocationPoint)tags[0].Location).Point.Y;
+                foreach (IndependentTag tag in tags)
                 {
-                    Element currentTag = sortedTags[i];
-                    Element previousTag = sortedTags[i - 1];
-
-                    XYZ currentTagLocation = ((LocationPoint)currentTag.Location).Point;
-                    XYZ previousTagLocation = ((LocationPoint)previousTag.Location).Point;
-
-                    double newY = previousTagLocation.Y - offset;
-                    XYZ newLocation = new XYZ(currentTagLocation.X, newY, currentTagLocation.Z);
-
-                    (currentTag.Location as LocationPoint).Move(newLocation - currentTagLocation);
+                    LocationPoint location = tag.Location as LocationPoint;
+                    double newY = startY - offset;
+                    XYZ newLocation = new XYZ(location.Point.X, newY, location.Point.Z);
+                    location.Point = newLocation;
                 }
 
                 trans.Commit();
