@@ -147,13 +147,13 @@ namespace MyRevitCommands
             System.Windows.Forms.Button okButton = new System.Windows.Forms.Button();
             okButton.Text = "OK";
             okButton.DialogResult = DialogResult.OK;
-            okButton.Location = new System.Drawing.Point(180, y+50);
+            okButton.Location = new System.Drawing.Point(180, y+50>160?y+50:160);
             forma.Controls.Add(okButton);
 
             System.Windows.Forms.Button cancelButton = new System.Windows.Forms.Button();
             cancelButton.Text = "Cancel";
             cancelButton.DialogResult = DialogResult.Cancel;
-            cancelButton.Location = new System.Drawing.Point(260, y+50);
+            cancelButton.Location = new System.Drawing.Point(260, y+50>160?y+50:160);
             forma.Controls.Add(cancelButton);
 
             // Show the form and get the selected family
