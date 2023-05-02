@@ -250,7 +250,7 @@ namespace MyRevitCommands
             //TaskDialog.Show("Count", DuctFiltered.Count.ToString());
 
             System.Windows.Forms.Form formc = new System.Windows.Forms.Form();
-            formc.Text = "Specify the Minimum Duct Length in Foot";
+            formc.Text = "Specify the Minimum Duct Length in Millimetre";
             formc.StartPosition = FormStartPosition.CenterScreen;
             formc.FormBorderStyle = FormBorderStyle.FixedDialog;
             formc.MinimizeBox = false;
@@ -296,7 +296,7 @@ namespace MyRevitCommands
             }
 
             //TaskDialog.Show("Minimum Length", minLength);
-            int mLength = int.Parse(minLength);
+            double mLength = int.Parse(minLength) * 0.00328084;
 
             foreach (var d in DuctFiltered)
             {

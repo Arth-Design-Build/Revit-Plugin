@@ -187,3 +187,4 @@ D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAPIUI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\InfrastructureDBAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\ATFRevitCoreAPI.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\MyRevitCommands.dll.config
