@@ -66,7 +66,7 @@ namespace MyRevitCommands
             //Check the current view
             if (!activeView.CropBoxActive)
             {
-                throw new Exception("Please set a crop box to the view");
+                throw new Exception("Please set a Crop Box to the View");
             }
 
             IEnumerable<IndependentTag> tags = from elem in new FilteredElementCollector(doc, activeView.Id).OfClass(typeof(IndependentTag)).WhereElementIsNotElementType()
