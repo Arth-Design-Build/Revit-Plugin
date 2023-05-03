@@ -101,11 +101,8 @@ D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\EPPlus.Interfaces.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\EPPlus.System.Drawing.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Prism.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\AdpSDKCSharpWrapper.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\AdskRcManaged.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAPIFoundation.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitDBAPI.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitDBCoreAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\PersistenceDBAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\UtilityAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\APIDBAPI.dll
@@ -136,8 +133,6 @@ D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\PointCloudAccessAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\StairRampDBAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\AnalysisAppsDBAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\MaterialDBAPI.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\IntfATFAPI.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\TextEngineAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\DBManagedServices.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\AdWindows.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAddInUtility.dll
@@ -152,10 +147,7 @@ D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitMFCAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\EssentialsUIAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\DetailUIAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\UIFrameworkServices.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Autodesk.UI.Windows.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Autodesk.UI.Themes.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Xceed.Wpf.AvalonDock.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\CompositionServices.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Aspose.Cells.xml
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\EPPlus.xml
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
@@ -163,7 +155,6 @@ D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Prism.pdb
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Prism.xml
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAPI.xml
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAPIUI.xml
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAddInUtility.xml
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\cs-CZ\AdWindows.resources.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\de-DE\AdWindows.resources.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\en-GB\AdWindows.resources.dll
@@ -185,6 +176,6 @@ D:\Arth\Revit-Plugin\MyRevitCommands\obj\Debug\MyRevitCommands.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\obj\Debug\MyRevitCommands.pdb
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAPIUI.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\InfrastructureDBAPI.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\ATFRevitCoreAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\MyRevitCommands.dll.config
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\EnergyAnalysisUtilitiesAPI.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\ManagedMC3.dll

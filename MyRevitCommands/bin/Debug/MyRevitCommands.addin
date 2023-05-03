@@ -12,17 +12,6 @@
 		<VendorDescription>@HelloWorld</VendorDescription>
 		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
 	</AddIn>
-	<AddIn Type="Command">
-		<Name>MyRevitCommands</Name>
-		<Assembly>MyRevitCommands.dll</Assembly>
-		<AddInId>50D9A287-BE99-4382-9258-589F245926A9</AddInId>
-		<FullClassName>MyRevitCommands.AlignTag</FullClassName>
-		<Text>Align Tags</Text>
-		<Description>Align tags in a document</Description>
-		<VendorId>Soumya</VendorId>
-		<VendorDescription>@HelloWorld</VendorDescription>
-		<VisibilityMode>NotVisibleWhenNoActiveDocument</VisibilityMode>
-	</AddIn>
 	-->
 	<AddIn Type="Application">
 		<Name>Arth Plugin</Name>
