@@ -81,9 +81,9 @@ namespace MyRevitCommands
             {
                 tag.LeaderEndCondition = LeaderEndCondition.Free;
 
-                //Reference referencedElement = tag.GetTaggedReferences().FirstOrDefault();
-                //tag.SetLeaderElbow(referencedElement, tag.TagHeadPosition);
-                tag.LeaderEnd = tag.TagHeadPosition;
+                Reference referencedElement = tag.GetTaggedReferences().FirstOrDefault();
+                tag.SetLeaderElbow(referencedElement, tag.TagHeadPosition);
+                //tag.LeaderEnd = tag.TagHeadPosition;
 
             }
 
@@ -364,8 +364,8 @@ namespace MyRevitCommands
 
         public static Element GetTaggedElement(Document doc, IndependentTag tag)
         {
-            LinkElementId linkElementId = tag.TaggedElementId;
-            //LinkElementId linkElementId = tag.GetTaggedElementIds().FirstOrDefault();
+            //LinkElementId linkElementId = tag.TaggedElementId;
+            LinkElementId linkElementId = tag.GetTaggedElementIds().FirstOrDefault();
 
             Element taggedElement;
             if (linkElementId.HostElementId == ElementId.InvalidElementId)
@@ -423,9 +423,9 @@ namespace MyRevitCommands
 
             _tag.TagHeadPosition = _currentView.CropBox.Transform.OfPoint(_headOffset + _tagCenter + offsetFromView);
 
-           //Reference referencedElement = _tag.GetTaggedReferences().FirstOrDefault();
-           //_tag.SetLeaderElbow(referencedElement, _currentView.CropBox.Transform.OfPoint(_elbowPosition));
-            _tag.LeaderElbow = _currentView.CropBox.Transform.OfPoint(_elbowPosition);
+            Reference referencedElement = _tag.GetTaggedReferences().FirstOrDefault();
+            _tag.SetLeaderElbow(referencedElement, _currentView.CropBox.Transform.OfPoint(_elbowPosition));
+            //_tag.LeaderElbow = _currentView.CropBox.Transform.OfPoint(_elbowPosition);
 
         }
     }

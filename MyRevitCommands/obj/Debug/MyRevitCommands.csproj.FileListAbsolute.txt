@@ -177,5 +177,14 @@ D:\Arth\Revit-Plugin\MyRevitCommands\obj\Debug\MyRevitCommands.pdb
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAPI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAPIUI.dll
 D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\MyRevitCommands.dll.config
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\EnergyAnalysisUtilitiesAPI.dll
-D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\ManagedMC3.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\AdpSDKCSharpWrapper.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\AdskRcManaged.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitDBCoreAPI.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\IntfATFAPI.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\TextEngineAPI.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\InfrastructureDBAPI.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\ATFRevitCoreAPI.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Autodesk.UI.Windows.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\Autodesk.UI.Themes.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\CompositionServices.dll
+D:\Arth\Revit-Plugin\MyRevitCommands\bin\Debug\RevitAddInUtility.xml
